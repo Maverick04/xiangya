@@ -1,0 +1,17 @@
+*.swp
+*.log
+*.seed
+.env
+*.csv
+*.pid
+*.out
+*.dat
+*.gz
+images/
+node_modules
+test/
+out/
+config/seed_data/
+config/Procfile*
+
+npm-debug.log
