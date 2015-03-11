@@ -1,0 +1,20 @@
+[
+    {
+         "_id":"54f6b36f231b404e6df9891a",
+         "username":"user1",
+         "email":"user1@test.com",
+         "password":"e26214d1060b9a5cda718c315444ad5caa7e5018902c68e13c921e1362b9061ce5e72b476fd92ad75fa80b6ff239b43adca9a8d9b460ff43e139fe85e325cfbc",
+         "salt":"l9yqlqim6lsxt0zkavvf",
+         "profile":"cat.png",
+         "patients":["54f6b4bacbccb170285496f1","54f6b4bacbccb170285496f2"]
+    },
+    {
+         "_id":"54f6b36f231b404e6df9891b",
+         "username":"user2",
+         "email":"user2@test.com",
+         "password":"3bdcae0aec0e9e5a02b3a704dcce749589d4aa911c089cbac0e710dbd794ca05893737038af7fc85074ad0c2bc0ebebee0aa5a80a88c023147d4b51b89e4a031",
+         "salt":"uwlo6s8bgxlewqq0qkov",
+         "profile":"dog.png",
+         "patients":["54f6b4bacbccb170285496f3"]
+    }
+]

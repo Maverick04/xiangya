@@ -1,0 +1,29 @@
+[
+    {
+        "_id":"54f6b4bacbccb170285496f1",
+        "name":"才宏韩",
+        "identity":"54242819930706644X",
+        "card":"XY93260406",
+         "sex":"false",
+    "birthday":"Wed Mar 04 1983 15:34:31 GMT+0800 (CST)",
+         "job":"农民" 
+    },
+    {
+        "_id":"54f6b4bacbccb170285496f2",
+        "name":"辟飞飞",
+        "identity":"230111200310272305",
+        "card":"XY58184088",
+         "sex":"false",
+    "birthday":"Wed Jan 04 1982 15:34:31 GMT+0800 (CST)",
+         "job":"教师" 
+    },
+    {
+        "_id":"54f6b4bacbccb170285496f3",
+        "name":"卓果",
+        "identity":"340802196703307271",
+        "card":"XY47233141",
+         "sex":"true",
+    "birthday":"Wed Mar 04 1977 15:34:31 GMT+0800 (CST)",
+         "job":"工人" 
+    }
+]

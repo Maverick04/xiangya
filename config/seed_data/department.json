@@ -1,0 +1,30 @@
+[
+    {
+	 "_id":"54f6abd28d9d302f4bb5feaa",
+        "name":"心血管内科"
+    },
+    {
+	 "_id":"54f6abd48d9d302f4bb5feab",
+        "name":"呼吸内科"
+    },
+    {
+	 "_id":"54f6abd58d9d302f4bb5feac",
+        "name":"消化内科"
+    },
+    {
+	 "_id":"54f6abd58d9d302f4bb5fead",
+        "name":"心胸外科"
+    },
+    {
+	 "_id":"54f6abd58d9d302f4bb5feae",
+        "name":"心脏外科"
+    },
+    {
+	 "_id":"54f6abd58d9d302f4bb5feaf",
+        "name":"泌尿外科"
+    },
+    {
+	 "_id":"54f6abd58d9d302f4bb5feb1",
+        "name":"妇科"
+    }
+]

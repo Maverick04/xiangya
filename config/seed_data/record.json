@@ -1,0 +1,42 @@
+[
+    {  
+        "_id":"54f6bc2fab5aa02fc9c10062",
+        "patientId":"54f6b4bacbccb170285496f1",
+        "departmentId":"54f6abd28d9d302f4bb5feaa",
+        "hospitalName":"湘雅医院",
+        "keywords":["肾病","普外"],
+        "details":["54fd4101562a1313fd85ba19","54fd4101562a1313fd85ba1a","54fd4101562a1313fd85ba1b"],
+        "createDate":"Wed Feb 18 2015 16:36:36 GMT+0800 (CST)",
+        "updateDate":"Wed Mar 04 2015 16:36:36 GMT+0800 (CST)"
+    },
+    { 
+        "_id":"54f6bc2fab5aa02fc9c10063",
+        "patientId":"54f6b4bacbccb170285496f2",
+        "departmentId":"54f6abd28d9d302f4bb5feaa",
+        "hospitalName":"湘雅医院",
+        "keywords":["肾病","泌尿系"],
+        "details":["54fd4101562a1313fd85ba1c","54fd4101562a1313fd85ba1d","54fd4101562a1313fd85ba1e","54fd4101562a1313fd85ba1f","54fd4101562a1313fd85ba20"],
+        "createDate":"Wed Feb 04 2015 16:36:36 GMT+0800 (CST)",
+        "updateDate":"Wed Mar 04 2015 16:36:36 GMT+0800 (CST)"
+    },
+    { 
+        "_id":"54f6bc2fab5aa02fc9c10064",
+        "patientId":"54f6b4bacbccb170285496f3",
+        "departmentId":"54f6abd48d9d302f4bb5feab",
+        "hospitalName":"湘雅医院",
+        "keywords":["泌尿系结石"],
+        "details":["54fd4101562a1313fd85ba21","54fd4101562a1313fd85ba22","54fd4101562a1313fd85ba23","54fd4101562a1313fd85ba24"],
+        "createDate":"Wed Feb 11 2015 16:36:36 GMT+0800 (CST)",
+        "updateDate":"Wed Mar 04 2015 16:36:36 GMT+0800 (CST)"
+    },
+    { 
+        "_id":"54f6bc2fab5aa02fc9c10065",
+        "patientId":"54f6b4bacbccb170285496f1",
+        "departmentId":"54f6abd58d9d302f4bb5fead",
+        "hospitalName":"湘雅医院",
+        "keywords":["感染"],
+        "details":["54fd4101562a1313fd85ba25","54fd4101562a1313fd85ba26"],
+        "createDate":"Wed Feb 25 2015 16:36:36 GMT+0800 (CST)",
+        "updateDate":"Wed Mar 04 2015 16:36:36 GMT+0800 (CST)"
+    }
+]
