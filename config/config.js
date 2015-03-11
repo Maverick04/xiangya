@@ -3,22 +3,9 @@ var _ = require('underscore'),
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
-var config = {};
-
-if(process.env.NODE_ENV === "test"){
-    config = {
-	paths:{
-	    userProfile: path.join(__dirname,""),
-	    doctorProfile: path.join(__dirname,""),
-	    recordImage: path.join(__dirname,"")
-	}
+var config = {   paths:{
+	             userProfile: path.join(__dirname,""),
+	             doctorProfile: path.join(__dirname,""),
+	             recordImage: path.join(__dirname,"")
+                 }
     };
-} else {
-    config = {
-	paths:{
-	    userProfile: path.join(__dirname,""),
-	    doctorProfile: path.join(__dirname,""),
-	    recordImage: path.join(__dirname,"")
-	}
-    };
-}

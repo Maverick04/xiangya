@@ -2,9 +2,9 @@ module.exports = function (env) {
 	if (env === 'production') {
 		console.log("using production connstring to mongo");
 		return {
-			"connstring": "",
-			"host": "",
+			"host": "localhost",
 			"port": 27017,
+                        "name": 'xiangya',
 			"replset": ""
 		};
 	} else {
@@ -12,6 +12,7 @@ module.exports = function (env) {
 		return {
 			"host": "localhost",
 			"port": 27017,
+                        "name": 'xiangya-dev',
 			"replset": ""
 		};
 	}
