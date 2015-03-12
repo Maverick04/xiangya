@@ -34,7 +34,7 @@ if(app.get('env') === "development"){
 
 
 
-if(app.get('env') === "development"){
+if(app.get('env') === "production"){
     var dataAccess = require('./lib/data_access');
     var user = require('./lib/data_access/data_models/user');
     var department = require('./lib/data_access/data_models/department');
@@ -107,7 +107,6 @@ app.use(morgan('dev',{stream:logStream}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(multer());
-app.use(session({resave:true,secret:'secret123',saveUninitialized:true}));
 
 //Routing setup 
 require('./config/routes')(app);
