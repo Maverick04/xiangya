@@ -1,7 +1,8 @@
 var _ = require('underscore'),
     auth = require('./auth'),
     multer = require('multer'),
-    userController = require('../lib/controllers/users');
+    userController = require('../lib/controllers/users'),
+    doctorController = require('../lib/controllers/doctors');
 //Append the controllers behind
 
 //Public interface 
@@ -31,5 +32,9 @@ module.exports = function(app){
    app.post("/user/unbindPatient",auth.basicAuth,userController.unbindPatient);
    app.get("/user/patient/:patientid",auth.basicAuth,userController.getPatientById);
    app.get("/user/patients",auth.basicAuth,userController.getAllPatients);
-   
+  
+   //Doctor Accout Resource
+   app.get("/doctor/account",auth.basicAuthDoctor,function(req,res){res.status(200).send(req.doctor);});
+   app.get("/doctor/account/:name",doctorController.getDoctorByName);
+    
 };
