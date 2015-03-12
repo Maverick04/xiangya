@@ -1,0 +1,1360 @@
+{
+    "project": {},
+    "files": {
+        "lib/controllers/doctors.js": {
+            "name": "lib/controllers/doctors.js",
+            "modules": {
+                "Controllers": 1
+            },
+            "classes": {
+                "DoctorController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/controllers/records.js": {
+            "name": "lib/controllers/records.js",
+            "modules": {},
+            "classes": {
+                "RecordController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/controllers/users.js": {
+            "name": "lib/controllers/users.js",
+            "modules": {},
+            "classes": {
+                "UserController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/auth_history.js": {
+            "name": "lib/data_access/data_models/auth_history.js",
+            "modules": {
+                "DataModels": 1
+            },
+            "classes": {
+                "AuthDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/department.js": {
+            "name": "lib/data_access/data_models/department.js",
+            "modules": {},
+            "classes": {
+                "DepartmentDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/doctor.js": {
+            "name": "lib/data_access/data_models/doctor.js",
+            "modules": {},
+            "classes": {
+                "DoctorDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/entity.js": {
+            "name": "lib/data_access/data_models/entity.js",
+            "modules": {},
+            "classes": {
+                "RecordEntityDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/index.js": {
+            "name": "lib/data_access/data_models/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/patient.js": {
+            "name": "lib/data_access/data_models/patient.js",
+            "modules": {},
+            "classes": {
+                "PatientDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/record.js": {
+            "name": "lib/data_access/data_models/record.js",
+            "modules": {},
+            "classes": {
+                "RecordDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/data_models/user.js": {
+            "name": "lib/data_access/data_models/user.js",
+            "modules": {},
+            "classes": {
+                "UserDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/repositories/auth_history.js": {
+            "name": "lib/data_access/repositories/auth_history.js",
+            "modules": {
+                "Repositories": 1
+            },
+            "classes": {
+                "AuthRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/repositories/department.js": {
+            "name": "lib/data_access/repositories/department.js",
+            "modules": {},
+            "classes": {
+                "DepartmentRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/repositories/doctor.js": {
+            "name": "lib/data_access/repositories/doctor.js",
+            "modules": {},
+            "classes": {
+                "DoctorRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/repositories/entity.js": {
+            "name": "lib/data_access/repositories/entity.js",
+            "modules": {},
+            "classes": {
+                "EntityRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/repositories/patient.js": {
+            "name": "lib/data_access/repositories/patient.js",
+            "modules": {},
+            "classes": {
+                "PatientRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/repositories/record.js": {
+            "name": "lib/data_access/repositories/record.js",
+            "modules": {},
+            "classes": {
+                "RecordRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/repositories/user.js": {
+            "name": "lib/data_access/repositories/user.js",
+            "modules": {},
+            "classes": {
+                "UserRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/data_access/index.js": {
+            "name": "lib/data_access/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/exceptions/ArgumentException.js": {
+            "name": "lib/exceptions/ArgumentException.js",
+            "modules": {
+                "Exceptions": 1
+            },
+            "classes": {
+                "ArgumentException": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/exceptions/ForbiddenOperationException.js": {
+            "name": "lib/exceptions/ForbiddenOperationException.js",
+            "modules": {},
+            "classes": {
+                "ForbiddenOperationException": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/exceptions/ResourceNotFoundException.js": {
+            "name": "lib/exceptions/ResourceNotFoundException.js",
+            "modules": {},
+            "classes": {
+                "ResourceNotFoundException": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Controllers": {
+            "name": "Controllers",
+            "submodules": {},
+            "classes": {
+                "DoctorController": 1,
+                "RecordController": 1,
+                "UserController": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/controllers/users.js",
+            "line": 1
+        },
+        "DataModels": {
+            "name": "DataModels",
+            "submodules": {},
+            "classes": {
+                "AuthDataModel": 1,
+                "DepartmentDataModel": 1,
+                "DoctorDataModel": 1,
+                "RecordEntityDataModel": 1,
+                "PatientDataModel": 1,
+                "RecordDataModel": 1,
+                "UserDataModel": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/data_access/data_models/user.js",
+            "line": 1,
+            "itemtype": "property",
+            "type": "Object",
+            "params": [
+                {
+                    "name": "Patient",
+                    "description": "Patient Data Model",
+                    "type": "Object"
+                },
+                {
+                    "name": "Doctor",
+                    "description": "Doctor Data Model",
+                    "type": "Object"
+                },
+                {
+                    "name": "Record",
+                    "description": "Record Data Model",
+                    "type": "Object"
+                },
+                {
+                    "name": "Auth",
+                    "description": "Authorization Data Model",
+                    "type": "Object"
+                },
+                {
+                    "name": "Department",
+                    "description": "Department Data Model",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Repositories": {
+            "name": "Repositories",
+            "submodules": {},
+            "classes": {
+                "AuthRepositories": 1,
+                "DepartmentRepositories": 1,
+                "DoctorRepositories": 1,
+                "EntityRepositories": 1,
+                "PatientRepositories": 1,
+                "RecordRepositories": 1,
+                "UserRepositories": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/data_access/repositories/user.js",
+            "line": 1
+        },
+        "Exceptions": {
+            "name": "Exceptions",
+            "submodules": {},
+            "classes": {
+                "ArgumentException": 1,
+                "ForbiddenOperationException": 1,
+                "ResourceNotFoundException": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/exceptions/ResourceNotFoundException.js",
+            "line": 1
+        }
+    },
+    "classes": {
+        "DoctorController": {
+            "name": "DoctorController",
+            "shortname": "DoctorController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Controllers",
+            "namespace": "",
+            "file": "lib/controllers/doctors.js",
+            "line": 1
+        },
+        "RecordController": {
+            "name": "RecordController",
+            "shortname": "RecordController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Controllers",
+            "namespace": "",
+            "file": "lib/controllers/records.js",
+            "line": 1
+        },
+        "UserController": {
+            "name": "UserController",
+            "shortname": "UserController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Controllers",
+            "namespace": "",
+            "file": "lib/controllers/users.js",
+            "line": 1
+        },
+        "AuthDataModel": {
+            "name": "AuthDataModel",
+            "shortname": "AuthDataModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "DataModels",
+            "namespace": "",
+            "file": "lib/data_access/data_models/auth_history.js",
+            "line": 1
+        },
+        "DepartmentDataModel": {
+            "name": "DepartmentDataModel",
+            "shortname": "DepartmentDataModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "DataModels",
+            "namespace": "",
+            "file": "lib/data_access/data_models/department.js",
+            "line": 1
+        },
+        "DoctorDataModel": {
+            "name": "DoctorDataModel",
+            "shortname": "DoctorDataModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "DataModels",
+            "namespace": "",
+            "file": "lib/data_access/data_models/doctor.js",
+            "line": 1
+        },
+        "RecordEntityDataModel": {
+            "name": "RecordEntityDataModel",
+            "shortname": "RecordEntityDataModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "DataModels",
+            "namespace": "",
+            "file": "lib/data_access/data_models/entity.js",
+            "line": 1
+        },
+        "PatientDataModel": {
+            "name": "PatientDataModel",
+            "shortname": "PatientDataModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "DataModels",
+            "namespace": "",
+            "file": "lib/data_access/data_models/patient.js",
+            "line": 1
+        },
+        "RecordDataModel": {
+            "name": "RecordDataModel",
+            "shortname": "RecordDataModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "DataModels",
+            "namespace": "",
+            "file": "lib/data_access/data_models/record.js",
+            "line": 1
+        },
+        "UserDataModel": {
+            "name": "UserDataModel",
+            "shortname": "UserDataModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "DataModels",
+            "namespace": "",
+            "file": "lib/data_access/data_models/user.js",
+            "line": 1
+        },
+        "AuthRepositories": {
+            "name": "AuthRepositories",
+            "shortname": "AuthRepositories",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Repositories",
+            "namespace": "",
+            "file": "lib/data_access/repositories/auth_history.js",
+            "line": 1
+        },
+        "DepartmentRepositories": {
+            "name": "DepartmentRepositories",
+            "shortname": "DepartmentRepositories",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Repositories",
+            "namespace": "",
+            "file": "lib/data_access/repositories/department.js",
+            "line": 1
+        },
+        "DoctorRepositories": {
+            "name": "DoctorRepositories",
+            "shortname": "DoctorRepositories",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Repositories",
+            "namespace": "",
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 1
+        },
+        "EntityRepositories": {
+            "name": "EntityRepositories",
+            "shortname": "EntityRepositories",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Repositories",
+            "namespace": "",
+            "file": "lib/data_access/repositories/entity.js",
+            "line": 1
+        },
+        "PatientRepositories": {
+            "name": "PatientRepositories",
+            "shortname": "PatientRepositories",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Repositories",
+            "namespace": "",
+            "file": "lib/data_access/repositories/patient.js",
+            "line": 1
+        },
+        "RecordRepositories": {
+            "name": "RecordRepositories",
+            "shortname": "RecordRepositories",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Repositories",
+            "namespace": "",
+            "file": "lib/data_access/repositories/record.js",
+            "line": 1
+        },
+        "UserRepositories": {
+            "name": "UserRepositories",
+            "shortname": "UserRepositories",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Repositories",
+            "namespace": "",
+            "file": "lib/data_access/repositories/user.js",
+            "line": 1
+        },
+        "ArgumentException": {
+            "name": "ArgumentException",
+            "shortname": "ArgumentException",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Exceptions",
+            "namespace": "",
+            "file": "lib/exceptions/ArgumentException.js",
+            "line": 1
+        },
+        "ForbiddenOperationException": {
+            "name": "ForbiddenOperationException",
+            "shortname": "ForbiddenOperationException",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Exceptions",
+            "namespace": "",
+            "file": "lib/exceptions/ForbiddenOperationException.js",
+            "line": 1
+        },
+        "ResourceNotFoundException": {
+            "name": "ResourceNotFoundException",
+            "shortname": "ResourceNotFoundException",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Exceptions",
+            "namespace": "",
+            "file": "lib/exceptions/ResourceNotFoundException.js",
+            "line": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "lib/controllers/users.js",
+            "line": 13,
+            "description": "POST /user/account\nregister a user in the system",
+            "itemtype": "method",
+            "name": "registerUser",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 33,
+            "description": "POST /user/bindPhone\nbind phone number to user",
+            "itemtype": "method",
+            "name": "bindPhone",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 54,
+            "description": "POST /user/unbindPhone\nunbindPhonend phone number from user",
+            "itemtype": "method",
+            "name": "unbindPhone",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 75,
+            "description": "POST /user/updateProfile\nupdate a user's profile",
+            "itemtype": "method",
+            "name": "updateProfile",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 96,
+            "description": "POST /user/sendPassword\nsend user a random password if user lost the password",
+            "itemtype": "method",
+            "name": "sendPassword",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 134,
+            "description": "POST /user/resetPassword\nreset user's password",
+            "itemtype": "method",
+            "name": "resetPassword",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 155,
+            "description": "POST /user/bindPatient\nbind a patient to user",
+            "itemtype": "method",
+            "name": "bindPatient",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 176,
+            "description": "POST /user/unbindPatient\nunbindPatient phone number from user",
+            "itemtype": "method",
+            "name": "unbindPatient",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 197,
+            "description": "GET /user/patient\nget the detials about a patient",
+            "itemtype": "method",
+            "name": "getPatientById",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/users.js",
+            "line": 217,
+            "description": "GET /user/patients\nget all the patients binded with the user",
+            "itemtype": "method",
+            "name": "getPatientById",
+            "class": "UserController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/data_access/repositories/auth_history.js",
+            "line": 13,
+            "description": "Intert a new record",
+            "itemtype": "method",
+            "name": "authorise",
+            "params": [
+                {
+                    "name": "doctorid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "operation",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "authid",
+                "type": "Promise"
+            },
+            "class": "AuthRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/department.js",
+            "line": 14,
+            "description": "Get all the departments' detail",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "DepartmentRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 15,
+            "description": "Authenticate docotr's credentail",
+            "itemtype": "method",
+            "name": "basicAuthenticate",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "doctor object",
+                "type": "Promise"
+            },
+            "class": "DoctorRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 51,
+            "description": "Find a doctor using doctor name",
+            "itemtype": "method",
+            "name": "getByName",
+            "params": [
+                {
+                    "name": "name\nreturn",
+                    "description": "{Promise} doctor object",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 75,
+            "description": "Find a doctor using doctorid",
+            "itemtype": "method",
+            "name": "getById",
+            "params": [
+                {
+                    "name": "doctorid\nreturn",
+                    "description": "{Promise} doctor object",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 100,
+            "description": "Register a doctor",
+            "itemtype": "method",
+            "name": "registerDoctor",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "username",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "departmentId\nreturn",
+                    "description": "{Promise} user object",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 158,
+            "description": "Complete the doctor information",
+            "itemtype": "method",
+            "name": "completeDoctor",
+            "params": [
+                {
+                    "name": "doctorid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "name:",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "sex",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "birthday",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "description",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "title",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "doctor object",
+                "type": "Promise"
+            },
+            "class": "DoctorRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 215,
+            "description": "Reset the password",
+            "itemtype": "method",
+            "name": "resetPassword",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password\nreturn",
+                    "description": "{Promise} password reset status",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/entity.js",
+            "line": 13,
+            "description": "Get the detail about one entity",
+            "itemtype": "method",
+            "name": "getById",
+            "params": [
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "entity object",
+                "type": "Promise"
+            },
+            "class": "EntityRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/entity.js",
+            "line": 40,
+            "description": "remove one entity",
+            "itemtype": "method",
+            "name": "removeById",
+            "params": [
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "delete status",
+                "type": "Promise"
+            },
+            "class": "EntityRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/entity.js",
+            "line": 66,
+            "description": "insert one entity",
+            "itemtype": "method",
+            "name": "insert",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "images",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "entityid",
+                "type": "Promise"
+            },
+            "class": "EntityRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/entity.js",
+            "line": 98,
+            "description": "add one image",
+            "itemtype": "method",
+            "name": "addImage",
+            "params": [
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "image",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "operation status",
+                "type": "Promise"
+            },
+            "class": "EntityRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/entity.js",
+            "line": 128,
+            "description": "remove one image",
+            "itemtype": "method",
+            "name": "removeImage",
+            "params": [
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "image",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "operation status",
+                "type": "Promise"
+            },
+            "class": "EntityRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/patient.js",
+            "line": 13,
+            "description": "rBind patient with user\n*@method bindPatient\n*@param {String} userid\n*@param {String} name\n*@param {String} identity\n*@param {String} card\n*@param {String} sex\n*@param {ISODate} birthday\n*@param {String} job\n*@return {Promise} patientId",
+            "class": "PatientRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/patient.js",
+            "line": 95,
+            "description": "Unbind patient with user",
+            "itemtype": "method",
+            "name": "unbindPatient",
+            "params": [
+                {
+                    "name": "userid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "patientid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "status",
+                "type": "Promise"
+            },
+            "class": "PatientRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/patient.js",
+            "line": 135,
+            "description": "Get patient details",
+            "itemtype": "method",
+            "name": "getById",
+            "params": [
+                {
+                    "name": "patientid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "patient details",
+                "type": "Promise"
+            },
+            "class": "PatientRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 13,
+            "description": "Intert a new record",
+            "itemtype": "method",
+            "name": "insertRecord",
+            "params": [
+                {
+                    "name": "record",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "recordId",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 53,
+            "description": "Get record detail by Id",
+            "itemtype": "method",
+            "name": "getById",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "record object",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 90,
+            "description": "Remove record",
+            "itemtype": "method",
+            "name": "removeById",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "operation status",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 116,
+            "description": "Search record",
+            "itemtype": "method",
+            "name": "getByKeywords",
+            "params": [
+                {
+                    "name": "keyword",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "record digest list",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 133,
+            "description": "List all records of a doctor",
+            "itemtype": "method",
+            "name": "getByDoctorId",
+            "params": [
+                {
+                    "name": "doctorid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "record digest list",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 149,
+            "description": "List all records of a patients to a doctor",
+            "itemtype": "method",
+            "name": "getByPatientAndDoctor",
+            "params": [
+                {
+                    "name": "doctorid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "patiendid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "record digest list",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 15,
+            "description": "Authenticate user's credentail",
+            "itemtype": "method",
+            "name": "basicAuthenticate",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "user object",
+                "type": "Promise"
+            },
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 52,
+            "description": "Find A User using email",
+            "itemtype": "method",
+            "name": "getByEmail",
+            "params": [
+                {
+                    "name": "email\nreturn",
+                    "description": "{Promise} user object",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 76,
+            "description": "Find A User using userid",
+            "itemtype": "method",
+            "name": "getById",
+            "params": [
+                {
+                    "name": "userid\nreturn",
+                    "description": "{Promise} user object",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 101,
+            "description": "Register user",
+            "itemtype": "method",
+            "name": "registerUser",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "username\nreturn",
+                    "description": "{Promise} userid",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 160,
+            "description": "Bind the phone number",
+            "itemtype": "method",
+            "name": "bindPhone",
+            "params": [
+                {
+                    "name": "userid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "phone\nreturn",
+                    "description": "{Promise} bind status",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 193,
+            "description": "Unbind the phone number",
+            "itemtype": "method",
+            "name": "unbindPhone",
+            "params": [
+                {
+                    "name": "userid\nreturn",
+                    "description": "{Promise} unbind status",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 219,
+            "description": "Update the profile",
+            "itemtype": "method",
+            "name": "updateProfile",
+            "params": [
+                {
+                    "name": "userid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "profile\nreturn",
+                    "description": "{Promise} image_url",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 248,
+            "description": "Reset the password",
+            "itemtype": "method",
+            "name": "resetPassword",
+            "params": [
+                {
+                    "name": "userid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password\nreturn",
+                    "description": "{Promise} password reset status",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/user.js",
+            "line": 284,
+            "description": "Get Patient List",
+            "itemtype": "method",
+            "name": "getAllPatients",
+            "params": [
+                {
+                    "name": "userid\nreturn",
+                    "description": "{Promise} patient list",
+                    "type": "String"
+                }
+            ],
+            "class": "UserRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/index.js",
+            "line": 36,
+            "description": "Delete all database objects with a given model\nmethod reset",
+            "params": [
+                {
+                    "name": "dataModel",
+                    "description": "Model to be deleted",
+                    "type": "Objectt"
+                }
+            ],
+            "class": "ArgumentException",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/index.js",
+            "line": 57,
+            "description": "Seed database with provided data for a model\nmethod seed\nparam {Object} dataModel Model to be seeded\nparam {List} entities List of entities to be inserted",
+            "class": "ArgumentException",
+            "module": "Repositories"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nGet all the departments' detail",
+            "line": " lib/data_access/repositories/department.js:14"
+        },
+        {
+            "message": "Missing item type\nrBind patient with user\n*@method bindPatient\n*@param {String} userid\n*@param {String} name\n*@param {String} identity\n*@param {String} card\n*@param {String} sex\n*@param {ISODate} birthday\n*@param {String} job\n*@return {Promise} patientId",
+            "line": " lib/data_access/repositories/patient.js:13"
+        },
+        {
+            "message": "Missing item type\nDelete all database objects with a given model\nmethod reset",
+            "line": " lib/data_access/index.js:36"
+        },
+        {
+            "message": "Missing item type\nSeed database with provided data for a model\nmethod seed\nparam {Object} dataModel Model to be seeded\nparam {List} entities List of entities to be inserted",
+            "line": " lib/data_access/index.js:57"
+        }
+    ]
+}

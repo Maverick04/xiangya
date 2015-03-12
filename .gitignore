@@ -10,7 +10,6 @@
 images/
 node_modules
 test/
-out/
 config/Procfile*
 scripts/
 npm-debug.log
