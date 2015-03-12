@@ -12,5 +12,5 @@
     {"_id":"54fd4101562a1313fd85ba23","createDate":"Wed Feb 25 2015 16:36:36 GMT+0800 (CST)","type":"photos","images":["54f6c5c3c35bc0eb211e97e9"]},
     {"_id":"54fd4101562a1313fd85ba24","createDate":"Wed Mar 04 2015 16:36:36 GMT+0800 (CST)","type":"repeat","images":["54f6c5c3c35bc0eb211e97ea","54f6c5c3c35bc0eb211e97eb"]},
     {"_id":"54fd4101562a1313fd85ba25","createDate":"Wed Feb 25 2015 16:36:36 GMT+0800 (CST)","type":"initial","images":["54f6c634a0f846e4f55db61b","54f6c634a0f846e4f55db61c"]},
-    {"_id":"54fd4101562a1313fd85ba26","createDate":"Wed Mar 04 2015 16:36:36 GMT+0800 (CST)","type":"checkin","images":["54f6c634a0f846e4f55db61d","54f6c634a0f846e4f55db61f"]}
+    {"_id":"54fd4101562a1313fd85ba26","createDate":"Wed Mar 04 2015 16:36:36 GMT+0800 (CST)","type":"checkin","images":["54f6c634a0f846e4f55db61d","54f6c634a0f846e4f55db61e"]}
 ]

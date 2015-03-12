@@ -1,5 +1,6 @@
 var _ = require('underscore'),
     auth = require('./auth'),
+    multer = require('multer'),
     userController = require('../lib/controllers/users');
 //Append the controllers behind
 
@@ -10,6 +11,14 @@ module.exports = function(app){
         res.write("Server is OK!");
         res.end();
    });
+
+   app.post('/upload/user',multer({dest:'./images/uprofile'}),function(req,res){ res.json(req.files); });
+   app.post('/upload/doctor',multer({dest:'./images/dprofile'}),function(req,res){ res.json(req.files); });
+   app.post('/upload/record',multer({dest:'./images/records'}),function(req,res){ res.json(req.files); });
+    
+
+
+  
    //Append other routes
    //User Account Resource
    app.post("/user/account",userController.registerUser);

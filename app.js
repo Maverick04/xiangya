@@ -11,7 +11,6 @@ var Q = require('q'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
     timeout = require('connect-timeout'),
-    multer = require('multer'),
     path = require('path');
 
 var app = express();
@@ -122,7 +121,6 @@ app.use(timeout('2s'));
 app.use(morgan('dev',{stream:logStream}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
-app.use(multer());
 
 //Routing setup 
 require('./config/routes')(app);
