@@ -5,7 +5,6 @@ var Q = require('q'),
     express = require('express'),
     fs = require('fs'),
     dataAccess = require('./lib/data_access'),
-    errorhandler=require('errorhandler'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
@@ -30,7 +29,7 @@ console.log('Running environment: ' + app.settings.env);
 
 //Configuration
 if(app.get('env') === "development"){
-    app.use(errorhandler());
+    app.use(require('errorhandler')());
 }
 
 
