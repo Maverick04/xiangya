@@ -5,6 +5,7 @@ var Q = require('q'),
     express = require('express'),
     fs = require('fs'),
     dataAccess = require('./lib/data_access'),
+    config = require('./config/config'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
@@ -31,6 +32,21 @@ console.log('Running environment: ' + app.settings.env);
 if(app.get('env') === "development"){
     app.use(require('errorhandler')());
 }
+
+
+//Create images folders
+if (!fs.existsSync(config().userProfile)) {
+    fs.mkdirSync(config().userProfile);
+}
+
+if (!fs.existsSync(config().doctorProfile)) {
+    fs.mkdirSync(config().doctorProfile);
+}
+
+if (!fs.existsSync(config().recordImage)) {
+    fs.mkdirSync(config().recordImage);
+}
+
 
 
 

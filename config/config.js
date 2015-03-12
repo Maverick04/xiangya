@@ -3,9 +3,11 @@ var _ = require('underscore'),
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
-var config = {   paths:{
-	             userProfile: path.join(__dirname,""),
-	             doctorProfile: path.join(__dirname,""),
-	             recordImage: path.join(__dirname,"")
-                 }
+module.exports = function() {
+    var paths = {
+        userProfile: path.join(__dirname,"../images/uprofile"),
+        doctorProfile: path.join(__dirname,"../images/dprofile"),
+        recordImage: path.join(__dirname,"../images/records")
     };
+    return paths;
+};
