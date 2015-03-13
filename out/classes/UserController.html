@@ -41,6 +41,7 @@
                                 <li><a href="../classes/ArgumentException.html">ArgumentException</a></li>
                                 <li><a href="../classes/AuthDataModel.html">AuthDataModel</a></li>
                                 <li><a href="../classes/AuthRepositories.html">AuthRepositories</a></li>
+                                <li><a href="../classes/basicAuthentication.html">basicAuthentication</a></li>
                                 <li><a href="../classes/DepartmentDataModel.html">DepartmentDataModel</a></li>
                                 <li><a href="../classes/DepartmentRepositories.html">DepartmentRepositories</a></li>
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
@@ -48,6 +49,8 @@
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
+                                <li><a href="../classes/image.html">image</a></li>
+                                <li><a href="../classes/mail.html">mail</a></li>
                                 <li><a href="../classes/PatientDataModel.html">PatientDataModel</a></li>
                                 <li><a href="../classes/PatientRepositories.html">PatientRepositories</a></li>
                                 <li><a href="../classes/RecordController.html">RecordController</a></li>
@@ -55,16 +58,19 @@
                                 <li><a href="../classes/RecordEntityDataModel.html">RecordEntityDataModel</a></li>
                                 <li><a href="../classes/RecordRepositories.html">RecordRepositories</a></li>
                                 <li><a href="../classes/ResourceNotFoundException.html">ResourceNotFoundException</a></li>
+                                <li><a href="../classes/string.html">string</a></li>
                                 <li><a href="../classes/UserController.html">UserController</a></li>
                                 <li><a href="../classes/UserDataModel.html">UserDataModel</a></li>
                                 <li><a href="../classes/UserRepositories.html">UserRepositories</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Authentication.html">Authentication</a></li>
                                 <li><a href="../modules/Controllers.html">Controllers</a></li>
                                 <li><a href="../modules/DataModels.html">DataModels</a></li>
                                 <li><a href="../modules/Exceptions.html">Exceptions</a></li>
                                 <li><a href="../modules/Repositories.html">Repositories</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
                             </ul>
                         </div>
                     </div>
@@ -140,7 +146,7 @@
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getPatientById">getPatientById</a>
+                                <a href="#method_getAllPatients">getAllPatients</a>
 
                             </li>
                             <li class="index-item method">
@@ -184,7 +190,28 @@
 <div id="method_bindPatient" class="method item">
     <h3 class="name"><code>bindPatient</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>identity</code>
+                </li>
+                <li class="arg">
+                        <code>card</code>
+                </li>
+                <li class="arg">
+                        <code>sex</code>
+                </li>
+                <li class="arg">
+                        <code>birthday</code>
+                </li>
+                <li class="arg">
+                        <code>job</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -196,7 +223,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l155"><code>lib&#x2F;controllers&#x2F;users.js:155</code></a>
+        <a href="../files/lib_controllers_users.js.html#l162"><code>lib&#x2F;controllers&#x2F;users.js:162</code></a>
         </p>
 
 
@@ -209,6 +236,72 @@ bind a patient to user</p>
 
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">name</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">identity</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">card</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">sex</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">birthday</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">job</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
@@ -216,7 +309,13 @@ bind a patient to user</p>
 <div id="method_bindPhone" class="method item">
     <h3 class="name"><code>bindPhone</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>phone</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -228,7 +327,7 @@ bind a patient to user</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l33"><code>lib&#x2F;controllers&#x2F;users.js:33</code></a>
+        <a href="../files/lib_controllers_users.js.html#l36"><code>lib&#x2F;controllers&#x2F;users.js:36</code></a>
         </p>
 
 
@@ -241,12 +340,28 @@ bind phone number to user</p>
 
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">phone</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
 </div>
-<div id="method_getPatientById" class="method item">
-    <h3 class="name"><code>getPatientById</code></h3>
+<div id="method_getAllPatients" class="method item">
+    <h3 class="name"><code>getAllPatients</code></h3>
 
         <span class="paren">()</span>
 
@@ -260,39 +375,7 @@ bind phone number to user</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l197"><code>lib&#x2F;controllers&#x2F;users.js:197</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>GET /user/patient
-get the detials about a patient</p>
-
-    </div>
-
-
-
-
-</div>
-<div id="method_getPatientById" class="method item">
-    <h3 class="name"><code>getPatientById</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/lib_controllers_users.js.html#l217"><code>lib&#x2F;controllers&#x2F;users.js:217</code></a>
+        <a href="../files/lib_controllers_users.js.html#l232"><code>lib&#x2F;controllers&#x2F;users.js:232</code></a>
         </p>
 
 
@@ -309,10 +392,76 @@ get all the patients binded with the user</p>
 
 
 </div>
+<div id="method_getPatientById" class="method item">
+    <h3 class="name"><code>getPatientById</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>patientid</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_users.js.html#l211"><code>lib&#x2F;controllers&#x2F;users.js:211</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>GET /user/patient
+get the detials about a patient</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">patientid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
 <div id="method_registerUser" class="method item">
     <h3 class="name"><code>registerUser</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>email</code>
+                </li>
+                <li class="arg">
+                        <code>password</code>
+                </li>
+                <li class="arg">
+                        <code>username</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -337,6 +486,42 @@ register a user in the system</p>
 
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">email</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">password</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">username</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
@@ -344,7 +529,13 @@ register a user in the system</p>
 <div id="method_resetPassword" class="method item">
     <h3 class="name"><code>resetPassword</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>password</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -356,7 +547,7 @@ register a user in the system</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l134"><code>lib&#x2F;controllers&#x2F;users.js:134</code></a>
+        <a href="../files/lib_controllers_users.js.html#l140"><code>lib&#x2F;controllers&#x2F;users.js:140</code></a>
         </p>
 
 
@@ -369,6 +560,22 @@ reset user's password</p>
 
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">password</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
@@ -376,7 +583,13 @@ reset user's password</p>
 <div id="method_sendPassword" class="method item">
     <h3 class="name"><code>sendPassword</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>email</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -388,7 +601,7 @@ reset user's password</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l96"><code>lib&#x2F;controllers&#x2F;users.js:96</code></a>
+        <a href="../files/lib_controllers_users.js.html#l101"><code>lib&#x2F;controllers&#x2F;users.js:101</code></a>
         </p>
 
 
@@ -401,6 +614,22 @@ send user a random password if user lost the password</p>
 
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">email</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
@@ -408,7 +637,13 @@ send user a random password if user lost the password</p>
 <div id="method_unbindPatient" class="method item">
     <h3 class="name"><code>unbindPatient</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>patientid</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -420,7 +655,7 @@ send user a random password if user lost the password</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l176"><code>lib&#x2F;controllers&#x2F;users.js:176</code></a>
+        <a href="../files/lib_controllers_users.js.html#l189"><code>lib&#x2F;controllers&#x2F;users.js:189</code></a>
         </p>
 
 
@@ -433,6 +668,22 @@ unbindPatient phone number from user</p>
 
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">patientid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
@@ -452,7 +703,7 @@ unbindPatient phone number from user</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l54"><code>lib&#x2F;controllers&#x2F;users.js:54</code></a>
+        <a href="../files/lib_controllers_users.js.html#l58"><code>lib&#x2F;controllers&#x2F;users.js:58</code></a>
         </p>
 
 
@@ -472,7 +723,13 @@ unbindPhonend phone number from user</p>
 <div id="method_updateProfile" class="method item">
     <h3 class="name"><code>updateProfile</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>profile</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -484,7 +741,7 @@ unbindPhonend phone number from user</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_controllers_users.js.html#l75"><code>lib&#x2F;controllers&#x2F;users.js:75</code></a>
+        <a href="../files/lib_controllers_users.js.html#l79"><code>lib&#x2F;controllers&#x2F;users.js:79</code></a>
         </p>
 
 
@@ -497,6 +754,22 @@ update a user's profile</p>
 
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">profile</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 

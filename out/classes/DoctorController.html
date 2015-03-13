@@ -41,6 +41,7 @@
                                 <li><a href="../classes/ArgumentException.html">ArgumentException</a></li>
                                 <li><a href="../classes/AuthDataModel.html">AuthDataModel</a></li>
                                 <li><a href="../classes/AuthRepositories.html">AuthRepositories</a></li>
+                                <li><a href="../classes/basicAuthentication.html">basicAuthentication</a></li>
                                 <li><a href="../classes/DepartmentDataModel.html">DepartmentDataModel</a></li>
                                 <li><a href="../classes/DepartmentRepositories.html">DepartmentRepositories</a></li>
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
@@ -48,6 +49,8 @@
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
+                                <li><a href="../classes/image.html">image</a></li>
+                                <li><a href="../classes/mail.html">mail</a></li>
                                 <li><a href="../classes/PatientDataModel.html">PatientDataModel</a></li>
                                 <li><a href="../classes/PatientRepositories.html">PatientRepositories</a></li>
                                 <li><a href="../classes/RecordController.html">RecordController</a></li>
@@ -55,16 +58,19 @@
                                 <li><a href="../classes/RecordEntityDataModel.html">RecordEntityDataModel</a></li>
                                 <li><a href="../classes/RecordRepositories.html">RecordRepositories</a></li>
                                 <li><a href="../classes/ResourceNotFoundException.html">ResourceNotFoundException</a></li>
+                                <li><a href="../classes/string.html">string</a></li>
                                 <li><a href="../classes/UserController.html">UserController</a></li>
                                 <li><a href="../classes/UserDataModel.html">UserDataModel</a></li>
                                 <li><a href="../classes/UserRepositories.html">UserRepositories</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Authentication.html">Authentication</a></li>
                                 <li><a href="../modules/Controllers.html">Controllers</a></li>
                                 <li><a href="../modules/DataModels.html">DataModels</a></li>
                                 <li><a href="../modules/Exceptions.html">Exceptions</a></li>
                                 <li><a href="../modules/Repositories.html">Repositories</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
                             </ul>
                         </div>
                     </div>
@@ -120,17 +126,423 @@
     <ul class="api-class-tabs">
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
     </ul>
 
     <div>
         <div id="index" class="api-class-tabpanel index">
             <h2 class="off-left">Item Index</h2>
 
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_getAllDepartments">getAllDepartments</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getDoctorByName">getDoctorByName</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_registerDoctor">registerDoctor</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_resetPassword">resetPassword</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sendPassword">sendPassword</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_updateDoctor">updateDoctor</a>
+
+                            </li>
+                    </ul>
+                </div>
 
 
 
         </div>
 
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_getAllDepartments" class="method item">
+    <h3 class="name"><code>getAllDepartments</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_doctors.js.html#l56"><code>lib&#x2F;controllers&#x2F;doctors.js:56</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>GET /doctor/department
+get the department list</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_getDoctorByName" class="method item">
+    <h3 class="name"><code>getDoctorByName</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_doctors.js.html#l11"><code>lib&#x2F;controllers&#x2F;doctors.js:11</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>GET /doctor/account/:name
+get details about a doctor by name</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_registerDoctor" class="method item">
+    <h3 class="name"><code>registerDoctor</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>email</code>
+                </li>
+                <li class="arg">
+                        <code>password</code>
+                </li>
+                <li class="arg">
+                        <code>username</code>
+                </li>
+                <li class="arg">
+                        <code>departmentid</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_doctors.js.html#l32"><code>lib&#x2F;controllers&#x2F;doctors.js:32</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /doctor/account
+register a doctor into the system</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">email</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">password</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">username</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">departmentid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_resetPassword" class="method item">
+    <h3 class="name"><code>resetPassword</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>password</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_doctors.js.html#l134"><code>lib&#x2F;controllers&#x2F;doctors.js:134</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /doctor/resetpass
+reset doctor's password</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">password</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_sendPassword" class="method item">
+    <h3 class="name"><code>sendPassword</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>email</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_doctors.js.html#l98"><code>lib&#x2F;controllers&#x2F;doctors.js:98</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /doctor/sendpass
+send a new password for the doctor</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">email</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_updateDoctor" class="method item">
+    <h3 class="name"><code>updateDoctor</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>sex</code>
+                </li>
+                <li class="arg">
+                        <code>birthday</code>
+                </li>
+                <li class="arg">
+                        <code>description</code>
+                </li>
+                <li class="arg">
+                        <code>title</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_doctors.js.html#l72"><code>lib&#x2F;controllers&#x2F;doctors.js:72</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /doctor/update
+update a doctor's profile</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">name</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">sex</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">birthday</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">description</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">title</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+            </div>
 
 
 

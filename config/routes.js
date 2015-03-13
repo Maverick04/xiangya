@@ -36,5 +36,10 @@ module.exports = function(app){
    //Doctor Accout Resource
    app.get("/doctor/account",auth.basicAuthDoctor,function(req,res){res.status(200).send(req.doctor);});
    app.get("/doctor/account/:name",doctorController.getDoctorByName);
+   app.get("/doctor/department",doctorController.getAllDepartments);
+   app.post("/doctor/account",doctorController.registerDoctor);
+   app.post("/doctor/update",auth.basicAuthDoctor,doctorController.updateDoctor);
+   app.post("/doctor/sendpass",doctorController.sendPassword);
+   app.post("/doctor/resetpass",auth.basicAuthDoctor,doctorController.resetPassword);
     
 };

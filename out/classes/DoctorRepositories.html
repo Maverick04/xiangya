@@ -41,6 +41,7 @@
                                 <li><a href="../classes/ArgumentException.html">ArgumentException</a></li>
                                 <li><a href="../classes/AuthDataModel.html">AuthDataModel</a></li>
                                 <li><a href="../classes/AuthRepositories.html">AuthRepositories</a></li>
+                                <li><a href="../classes/basicAuthentication.html">basicAuthentication</a></li>
                                 <li><a href="../classes/DepartmentDataModel.html">DepartmentDataModel</a></li>
                                 <li><a href="../classes/DepartmentRepositories.html">DepartmentRepositories</a></li>
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
@@ -48,6 +49,8 @@
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
+                                <li><a href="../classes/image.html">image</a></li>
+                                <li><a href="../classes/mail.html">mail</a></li>
                                 <li><a href="../classes/PatientDataModel.html">PatientDataModel</a></li>
                                 <li><a href="../classes/PatientRepositories.html">PatientRepositories</a></li>
                                 <li><a href="../classes/RecordController.html">RecordController</a></li>
@@ -55,16 +58,19 @@
                                 <li><a href="../classes/RecordEntityDataModel.html">RecordEntityDataModel</a></li>
                                 <li><a href="../classes/RecordRepositories.html">RecordRepositories</a></li>
                                 <li><a href="../classes/ResourceNotFoundException.html">ResourceNotFoundException</a></li>
+                                <li><a href="../classes/string.html">string</a></li>
                                 <li><a href="../classes/UserController.html">UserController</a></li>
                                 <li><a href="../classes/UserDataModel.html">UserDataModel</a></li>
                                 <li><a href="../classes/UserRepositories.html">UserRepositories</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Authentication.html">Authentication</a></li>
                                 <li><a href="../modules/Controllers.html">Controllers</a></li>
                                 <li><a href="../modules/DataModels.html">DataModels</a></li>
                                 <li><a href="../modules/Exceptions.html">Exceptions</a></li>
                                 <li><a href="../modules/Repositories.html">Repositories</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,6 +143,10 @@
                             </li>
                             <li class="index-item method">
                                 <a href="#method_completeDoctor">completeDoctor</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getByEmail">getByEmail</a>
 
                             </li>
                             <li class="index-item method">
@@ -282,7 +292,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_doctor.js.html#l158"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;doctor.js:158</code></a>
+        <a href="../files/lib_data_access_repositories_doctor.js.html#l184"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;doctor.js:184</code></a>
         </p>
 
 
@@ -370,6 +380,62 @@
 
             </div>
         </div>
+
+
+</div>
+<div id="method_getByEmail" class="method item">
+    <h3 class="name"><code>getByEmail</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>email
+return</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_data_access_repositories_doctor.js.html#l100"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;doctor.js:100</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Find a doctor using email</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">email
+return</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>{Promise} doctor object</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
 
 
 </div>
@@ -516,7 +582,7 @@ return</code>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_doctor.js.html#l100"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;doctor.js:100</code></a>
+        <a href="../files/lib_data_access_repositories_doctor.js.html#l126"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;doctor.js:126</code></a>
         </p>
 
 
@@ -605,7 +671,7 @@ return</code>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_doctor.js.html#l215"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;doctor.js:215</code></a>
+        <a href="../files/lib_data_access_repositories_doctor.js.html#l241"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;doctor.js:241</code></a>
         </p>
 
 

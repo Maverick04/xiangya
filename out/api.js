@@ -20,15 +20,25 @@ YUI.add("yuidoc-meta", function(Y) {
         "ResourceNotFoundException",
         "UserController",
         "UserDataModel",
-        "UserRepositories"
+        "UserRepositories",
+        "basicAuthentication",
+        "image",
+        "mail",
+        "string"
     ],
     "modules": [
+        "Authentication",
         "Controllers",
         "DataModels",
         "Exceptions",
-        "Repositories"
+        "Repositories",
+        "util"
     ],
     "allModules": [
+        {
+            "displayName": "Authentication",
+            "name": "Authentication"
+        },
         {
             "displayName": "Controllers",
             "name": "Controllers"
@@ -44,6 +54,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Repositories",
             "name": "Repositories"
+        },
+        {
+            "displayName": "util",
+            "name": "util"
         }
     ]
 } };

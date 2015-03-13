@@ -41,6 +41,7 @@
                                 <li><a href="../classes/ArgumentException.html">ArgumentException</a></li>
                                 <li><a href="../classes/AuthDataModel.html">AuthDataModel</a></li>
                                 <li><a href="../classes/AuthRepositories.html">AuthRepositories</a></li>
+                                <li><a href="../classes/basicAuthentication.html">basicAuthentication</a></li>
                                 <li><a href="../classes/DepartmentDataModel.html">DepartmentDataModel</a></li>
                                 <li><a href="../classes/DepartmentRepositories.html">DepartmentRepositories</a></li>
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
@@ -48,6 +49,8 @@
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
+                                <li><a href="../classes/image.html">image</a></li>
+                                <li><a href="../classes/mail.html">mail</a></li>
                                 <li><a href="../classes/PatientDataModel.html">PatientDataModel</a></li>
                                 <li><a href="../classes/PatientRepositories.html">PatientRepositories</a></li>
                                 <li><a href="../classes/RecordController.html">RecordController</a></li>
@@ -55,16 +58,19 @@
                                 <li><a href="../classes/RecordEntityDataModel.html">RecordEntityDataModel</a></li>
                                 <li><a href="../classes/RecordRepositories.html">RecordRepositories</a></li>
                                 <li><a href="../classes/ResourceNotFoundException.html">ResourceNotFoundException</a></li>
+                                <li><a href="../classes/string.html">string</a></li>
                                 <li><a href="../classes/UserController.html">UserController</a></li>
                                 <li><a href="../classes/UserDataModel.html">UserDataModel</a></li>
                                 <li><a href="../classes/UserRepositories.html">UserRepositories</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Authentication.html">Authentication</a></li>
                                 <li><a href="../modules/Controllers.html">Controllers</a></li>
                                 <li><a href="../modules/DataModels.html">DataModels</a></li>
                                 <li><a href="../modules/Exceptions.html">Exceptions</a></li>
                                 <li><a href="../modules/Repositories.html">Repositories</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
                             </ul>
                         </div>
                     </div>
@@ -118,6 +124,9 @@ var _ = require(&#x27;underscore&#x27;),
   *POST /user/account
   *register a user in the system
   *@method registerUser
+  *@param {String} email
+  *@param {String} password
+  *@param {String} username
   */
 module.exports.registerUser = function(req,res){
     if(_.has(req.body,&quot;email&quot;) &amp;&amp; _.has(req.body,&quot;password&quot;) &amp;&amp; _.has(req.body,&quot;username&quot;)){
@@ -138,6 +147,7 @@ module.exports.registerUser = function(req,res){
   *POST /user/bindPhone
   *bind phone number to user
   *@method bindPhone
+  *@param {String} phone
   */
 module.exports.bindPhone = function(req,res){ 
     if(_.has(req.user,&#x27;_id&#x27;) &amp;&amp; _.has(req.body,&#x27;phone&#x27;)){
@@ -180,6 +190,7 @@ module.exports.unbindPhone = function(req,res){
   *POST /user/updateProfile
   *update a user&#x27;s profile
   *@method updateProfile
+  *@param {String} profile
   */
 module.exports.updateProfile = function(req,res){
     if(_.has(req.user,&#x27;_id&#x27;) &amp;&amp; _.has(req.body,&#x27;profile&#x27;)){
@@ -201,6 +212,7 @@ module.exports.updateProfile = function(req,res){
   *POST /user/sendPassword
   *send user a random password if user lost the password
   *@method sendPassword
+  *@param {String} email
   */
 module.exports.sendPassword = function(req,res){
     if(_.has(req.body,&#x27;email&#x27;)){
@@ -239,9 +251,10 @@ module.exports.sendPassword = function(req,res){
   *POST /user/resetPassword
   *reset user&#x27;s password
   *@method resetPassword
+  *@param {String} password
   */
 module.exports.resetPassword = function(req,res){
-    if(_.has(req.user,&#x27;_id&#x27;) &amp;&amp; _.has(req.body,&#x27;email&#x27;) &amp;&amp; _.has(req.body,&#x27;password&#x27;)){
+    if(_.has(req.user,&#x27;email&#x27;) &amp;&amp; _.has(req.body,&#x27;password&#x27;)){
         dataAccess.user.resetPassword(req.user.email,req.body.password)
         .then(function(result){
             res.json(result);
@@ -260,6 +273,12 @@ module.exports.resetPassword = function(req,res){
   *POST /user/bindPatient
   *bind a patient to user
   *@method bindPatient
+  *@param {String} name
+  *@param {String} identity
+  *@param {String} card
+  *@param {String} sex
+  *@param {String} birthday
+  *@param {String} job
   */
 module.exports.bindPatient = function(req,res){ 
     if(_.has(req.user,&#x27;_id&#x27;) &amp;&amp; _.has(req.body,&#x27;name&#x27;) &amp;&amp; _.has(req.body,&#x27;identity&#x27;) &amp;&amp; _.has(req.body,&#x27;card&#x27;) &amp;&amp; _.has(req.body,&#x27;sex&#x27;) &amp;&amp; _.has(req.body,&#x27;birthday&#x27;) &amp;&amp; _.has(req.body,&#x27;job&#x27;)){
@@ -281,6 +300,7 @@ module.exports.bindPatient = function(req,res){
   *POST /user/unbindPatient
   *unbindPatient phone number from user
   *@method unbindPatient
+  *@param {String} patientid
   */
 module.exports.unbindPatient = function(req,res){ 
     if(_.has(req.user,&#x27;_id&#x27;) &amp;&amp; _.has(req.body,&#x27;patientid&#x27;)){
@@ -302,6 +322,7 @@ module.exports.unbindPatient = function(req,res){
   *GET /user/patient
   *get the detials about a patient
   *@method getPatientById
+  *@param {String} patientid
   */
 module.exports.getPatientById = function(req,res){ 
     if(_.has(req.user,&#x27;_id&#x27;) &amp;&amp; _.has(req.params,&#x27;patientid&#x27;)){
@@ -321,7 +342,7 @@ module.exports.getPatientById = function(req,res){
 /**
   *GET /user/patients
   *get all the patients binded with the user 
-  *@method getPatientById
+  *@method getAllPatients
   */
 module.exports.getAllPatients = function(req,res){ 
     if(_.has(req.user,&#x27;_id&#x27;)){

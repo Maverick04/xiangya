@@ -41,6 +41,7 @@
                                 <li><a href="../classes/ArgumentException.html">ArgumentException</a></li>
                                 <li><a href="../classes/AuthDataModel.html">AuthDataModel</a></li>
                                 <li><a href="../classes/AuthRepositories.html">AuthRepositories</a></li>
+                                <li><a href="../classes/basicAuthentication.html">basicAuthentication</a></li>
                                 <li><a href="../classes/DepartmentDataModel.html">DepartmentDataModel</a></li>
                                 <li><a href="../classes/DepartmentRepositories.html">DepartmentRepositories</a></li>
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
@@ -48,6 +49,8 @@
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
+                                <li><a href="../classes/image.html">image</a></li>
+                                <li><a href="../classes/mail.html">mail</a></li>
                                 <li><a href="../classes/PatientDataModel.html">PatientDataModel</a></li>
                                 <li><a href="../classes/PatientRepositories.html">PatientRepositories</a></li>
                                 <li><a href="../classes/RecordController.html">RecordController</a></li>
@@ -55,16 +58,19 @@
                                 <li><a href="../classes/RecordEntityDataModel.html">RecordEntityDataModel</a></li>
                                 <li><a href="../classes/RecordRepositories.html">RecordRepositories</a></li>
                                 <li><a href="../classes/ResourceNotFoundException.html">ResourceNotFoundException</a></li>
+                                <li><a href="../classes/string.html">string</a></li>
                                 <li><a href="../classes/UserController.html">UserController</a></li>
                                 <li><a href="../classes/UserDataModel.html">UserDataModel</a></li>
                                 <li><a href="../classes/UserRepositories.html">UserRepositories</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Authentication.html">Authentication</a></li>
                                 <li><a href="../modules/Controllers.html">Controllers</a></li>
                                 <li><a href="../modules/DataModels.html">DataModels</a></li>
                                 <li><a href="../modules/Exceptions.html">Exceptions</a></li>
                                 <li><a href="../modules/Repositories.html">Repositories</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
                             </ul>
                         </div>
                     </div>
@@ -106,6 +112,11 @@
  *@module Controllers
  *@class RecordController
  */
+
+var _ = require(&#x27;underscore&#x27;),
+    dataAccess = require(&#x27;../data_access&#x27;),
+    util = require(&#x27;../util&#x27;),
+    exceptions = require(&#x27;../exceptions&#x27;);
 
 
     </pre>

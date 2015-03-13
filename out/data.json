@@ -1,6 +1,17 @@
 {
     "project": {},
     "files": {
+        "config/auth.js": {
+            "name": "config/auth.js",
+            "modules": {
+                "Authentication": 1
+            },
+            "classes": {
+                "basicAuthentication": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "lib/controllers/doctors.js": {
             "name": "lib/controllers/doctors.js",
             "modules": {
@@ -202,9 +213,57 @@
             },
             "fors": {},
             "namespaces": {}
+        },
+        "lib/util/image.js": {
+            "name": "lib/util/image.js",
+            "modules": {
+                "util": 1
+            },
+            "classes": {
+                "image": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/util/mail.js": {
+            "name": "lib/util/mail.js",
+            "modules": {},
+            "classes": {
+                "mail": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/util/string.js": {
+            "name": "lib/util/string.js",
+            "modules": {},
+            "classes": {
+                "string": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app.js": {
+            "name": "app.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
         }
     },
     "modules": {
+        "Authentication": {
+            "name": "Authentication",
+            "submodules": {},
+            "classes": {
+                "basicAuthentication": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "config/auth.js",
+            "line": 1
+        },
         "Controllers": {
             "name": "Controllers",
             "submodules": {},
@@ -297,9 +356,36 @@
             "tag": "module",
             "file": "lib/exceptions/ResourceNotFoundException.js",
             "line": 1
+        },
+        "util": {
+            "name": "util",
+            "submodules": {},
+            "classes": {
+                "image": 1,
+                "mail": 1,
+                "string": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/util/string.js",
+            "line": 1
         }
     },
     "classes": {
+        "basicAuthentication": {
+            "name": "basicAuthentication",
+            "shortname": "basicAuthentication",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Authentication",
+            "namespace": "",
+            "file": "config/auth.js",
+            "line": 1
+        },
         "DoctorController": {
             "name": "DoctorController",
             "shortname": "DoctorController",
@@ -559,30 +645,262 @@
             "namespace": "",
             "file": "lib/exceptions/ResourceNotFoundException.js",
             "line": 1
+        },
+        "image": {
+            "name": "image",
+            "shortname": "image",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "util",
+            "namespace": "",
+            "file": "lib/util/image.js",
+            "line": 1
+        },
+        "mail": {
+            "name": "mail",
+            "shortname": "mail",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "util",
+            "namespace": "",
+            "file": "lib/util/mail.js",
+            "line": 1
+        },
+        "string": {
+            "name": "string",
+            "shortname": "string",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "util",
+            "namespace": "",
+            "file": "lib/util/string.js",
+            "line": 1
         }
     },
     "classitems": [
+        {
+            "file": "config/auth.js",
+            "line": 11,
+            "description": "Authenticate Users, Will Append user To request if succeed",
+            "itemtype": "method",
+            "name": "basicAuth",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "basicAuthentication",
+            "module": "Authentication"
+        },
+        {
+            "file": "config/auth.js",
+            "line": 32,
+            "description": "Authenticate Doctor, Will Append user To request if succeed",
+            "itemtype": "method",
+            "name": "basicAuthDoctor",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "basicAuthentication",
+            "module": "Authentication"
+        },
+        {
+            "file": "lib/controllers/doctors.js",
+            "line": 11,
+            "description": "GET /doctor/account/:name\nget details about a doctor by name",
+            "itemtype": "method",
+            "name": "getDoctorByName",
+            "class": "DoctorController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/doctors.js",
+            "line": 32,
+            "description": "POST /doctor/account\nregister a doctor into the system",
+            "itemtype": "method",
+            "name": "registerDoctor",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "username",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "departmentid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/doctors.js",
+            "line": 56,
+            "description": "GET /doctor/department\nget the department list",
+            "itemtype": "method",
+            "name": "getAllDepartments",
+            "class": "DoctorController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/doctors.js",
+            "line": 72,
+            "description": "POST /doctor/update\nupdate a doctor's profile",
+            "itemtype": "method",
+            "name": "updateDoctor",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "sex",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "birthday",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "description",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "title",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/doctors.js",
+            "line": 98,
+            "description": "POST /doctor/sendpass\nsend a new password for the doctor",
+            "itemtype": "method",
+            "name": "sendPassword",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/doctors.js",
+            "line": 134,
+            "description": "POST /doctor/resetpass\nreset doctor's password",
+            "itemtype": "method",
+            "name": "resetPassword",
+            "params": [
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorController",
+            "module": "Controllers"
+        },
         {
             "file": "lib/controllers/users.js",
             "line": 13,
             "description": "POST /user/account\nregister a user in the system",
             "itemtype": "method",
             "name": "registerUser",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "username",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 33,
+            "line": 36,
             "description": "POST /user/bindPhone\nbind phone number to user",
             "itemtype": "method",
             "name": "bindPhone",
+            "params": [
+                {
+                    "name": "phone",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 54,
+            "line": 58,
             "description": "POST /user/unbindPhone\nunbindPhonend phone number from user",
             "itemtype": "method",
             "name": "unbindPhone",
@@ -591,64 +909,131 @@
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 75,
+            "line": 79,
             "description": "POST /user/updateProfile\nupdate a user's profile",
             "itemtype": "method",
             "name": "updateProfile",
+            "params": [
+                {
+                    "name": "profile",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 96,
+            "line": 101,
             "description": "POST /user/sendPassword\nsend user a random password if user lost the password",
             "itemtype": "method",
             "name": "sendPassword",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 134,
+            "line": 140,
             "description": "POST /user/resetPassword\nreset user's password",
             "itemtype": "method",
             "name": "resetPassword",
+            "params": [
+                {
+                    "name": "password",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 155,
+            "line": 162,
             "description": "POST /user/bindPatient\nbind a patient to user",
             "itemtype": "method",
             "name": "bindPatient",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "identity",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "card",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "sex",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "birthday",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "job",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 176,
+            "line": 189,
             "description": "POST /user/unbindPatient\nunbindPatient phone number from user",
             "itemtype": "method",
             "name": "unbindPatient",
+            "params": [
+                {
+                    "name": "patientid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 197,
+            "line": 211,
             "description": "GET /user/patient\nget the detials about a patient",
             "itemtype": "method",
             "name": "getPatientById",
+            "params": [
+                {
+                    "name": "patientid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
             "class": "UserController",
             "module": "Controllers"
         },
         {
             "file": "lib/controllers/users.js",
-            "line": 217,
+            "line": 232,
             "description": "GET /user/patients\nget all the patients binded with the user",
             "itemtype": "method",
-            "name": "getPatientById",
+            "name": "getAllPatients",
             "class": "UserController",
             "module": "Controllers"
         },
@@ -753,6 +1138,22 @@
         {
             "file": "lib/data_access/repositories/doctor.js",
             "line": 100,
+            "description": "Find a doctor using email",
+            "itemtype": "method",
+            "name": "getByEmail",
+            "params": [
+                {
+                    "name": "email\nreturn",
+                    "description": "{Promise} doctor object",
+                    "type": "String"
+                }
+            ],
+            "class": "DoctorRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/doctor.js",
+            "line": 126,
             "description": "Register a doctor",
             "itemtype": "method",
             "name": "registerDoctor",
@@ -783,7 +1184,7 @@
         },
         {
             "file": "lib/data_access/repositories/doctor.js",
-            "line": 158,
+            "line": 184,
             "description": "Complete the doctor information",
             "itemtype": "method",
             "name": "completeDoctor",
@@ -828,7 +1229,7 @@
         },
         {
             "file": "lib/data_access/repositories/doctor.js",
-            "line": 215,
+            "line": 241,
             "description": "Reset the password",
             "itemtype": "method",
             "name": "resetPassword",
@@ -1319,7 +1720,7 @@
         },
         {
             "file": "lib/data_access/index.js",
-            "line": 36,
+            "line": 39,
             "description": "Delete all database objects with a given model\nmethod reset",
             "params": [
                 {
@@ -1333,10 +1734,17 @@
         },
         {
             "file": "lib/data_access/index.js",
-            "line": 57,
+            "line": 60,
             "description": "Seed database with provided data for a model\nmethod seed\nparam {Object} dataModel Model to be seeded\nparam {List} entities List of entities to be inserted",
             "class": "ArgumentException",
             "module": "Repositories"
+        },
+        {
+            "file": "app.js",
+            "line": 1,
+            "description": "Module dependencies.",
+            "class": "",
+            "module": "util"
         }
     ],
     "warnings": [
@@ -1350,11 +1758,15 @@
         },
         {
             "message": "Missing item type\nDelete all database objects with a given model\nmethod reset",
-            "line": " lib/data_access/index.js:36"
+            "line": " lib/data_access/index.js:39"
         },
         {
             "message": "Missing item type\nSeed database with provided data for a model\nmethod seed\nparam {Object} dataModel Model to be seeded\nparam {List} entities List of entities to be inserted",
-            "line": " lib/data_access/index.js:57"
+            "line": " lib/data_access/index.js:60"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " app.js:1"
         }
     ]
 }

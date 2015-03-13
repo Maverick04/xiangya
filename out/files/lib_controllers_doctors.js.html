@@ -41,6 +41,7 @@
                                 <li><a href="../classes/ArgumentException.html">ArgumentException</a></li>
                                 <li><a href="../classes/AuthDataModel.html">AuthDataModel</a></li>
                                 <li><a href="../classes/AuthRepositories.html">AuthRepositories</a></li>
+                                <li><a href="../classes/basicAuthentication.html">basicAuthentication</a></li>
                                 <li><a href="../classes/DepartmentDataModel.html">DepartmentDataModel</a></li>
                                 <li><a href="../classes/DepartmentRepositories.html">DepartmentRepositories</a></li>
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
@@ -48,6 +49,8 @@
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
+                                <li><a href="../classes/image.html">image</a></li>
+                                <li><a href="../classes/mail.html">mail</a></li>
                                 <li><a href="../classes/PatientDataModel.html">PatientDataModel</a></li>
                                 <li><a href="../classes/PatientRepositories.html">PatientRepositories</a></li>
                                 <li><a href="../classes/RecordController.html">RecordController</a></li>
@@ -55,16 +58,19 @@
                                 <li><a href="../classes/RecordEntityDataModel.html">RecordEntityDataModel</a></li>
                                 <li><a href="../classes/RecordRepositories.html">RecordRepositories</a></li>
                                 <li><a href="../classes/ResourceNotFoundException.html">ResourceNotFoundException</a></li>
+                                <li><a href="../classes/string.html">string</a></li>
                                 <li><a href="../classes/UserController.html">UserController</a></li>
                                 <li><a href="../classes/UserDataModel.html">UserDataModel</a></li>
                                 <li><a href="../classes/UserRepositories.html">UserRepositories</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Authentication.html">Authentication</a></li>
                                 <li><a href="../modules/Controllers.html">Controllers</a></li>
                                 <li><a href="../modules/DataModels.html">DataModels</a></li>
                                 <li><a href="../modules/Exceptions.html">Exceptions</a></li>
                                 <li><a href="../modules/Repositories.html">Repositories</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
                             </ul>
                         </div>
                     </div>
@@ -106,6 +112,156 @@
  *@module Controllers
  *@class DoctorController
  */
+
+var _ = require(&#x27;underscore&#x27;),
+    dataAccess = require(&#x27;../data_access&#x27;),
+    util = require(&#x27;../util&#x27;),
+    exceptions = require(&#x27;../exceptions&#x27;);
+
+/**
+  *GET /doctor/account/:name
+  *get details about a doctor by name
+  *@method getDoctorByName
+  */
+module.exports.getDoctorByName = function(req,res){
+    if(_.has(req.params,&#x27;name&#x27;)){
+        dataAccess.doctor.getByName(req.params.name)
+        .then(function(result){
+            res.json(result);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+/**
+  *POST /doctor/account
+  *register a doctor into the system
+  *@method registerDoctor
+  *@param {String} email
+  *@param {String} password
+  *@param {String} username
+  *@param {String} departmentid
+  */ 
+module.exports.registerDoctor = function(req,res){
+    if(_.has(req.body,&quot;email&quot;) &amp;&amp; _.has(req.body,&quot;password&quot;) &amp;&amp; _.has(req.body,&quot;username&quot;) &amp;&amp; _.has(req.body,&quot;departmentid&quot;)){
+        dataAccess.doctor.registerDoctor(req.body.email,req.body.password,req.body.username,req.body.departmentid)
+        .then(function(doctor){
+            res.json(doctor);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+/**
+  *GET /doctor/department
+  *get the department list
+  *@method getAllDepartments
+  */
+module.exports.getAllDepartments = function(req,res){
+    dataAccess.department.getAllDepartments()
+    .then(function(result){
+        res.json(result);
+    })
+    .fail(function(err){
+        exceptions.errorResponse(res,err);
+    })
+    .done()
+}
+
+/**
+  *POST /doctor/update
+  *update a doctor&#x27;s profile
+  *@method updateDoctor
+  *@param {String} name
+  *@param {String} sex
+  *@param {String} birthday
+  *@param {String} description
+  *@param {String} title
+  */ 
+
+module.exports.updateDoctor = function(req,res){
+    if(_.has(req.doctor,&quot;_id&quot;) &amp;&amp;_.has(req.body,&quot;name&quot;) &amp;&amp; _.has(req.body,&quot;sex&quot;) &amp;&amp; _.has(req.body,&quot;birthday&quot;) &amp;&amp; _.has(req.body,&quot;description&quot;) &amp;&amp; _.has(req.body,&#x27;title&#x27;)){
+        dataAccess.doctor.completeDoctor(req.doctor._id,req.body.name,req.body.sex,req.body.birthday,req.body.description,req.body.title)
+        .then(function(doctor){
+            res.json(doctor);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+/**
+  *POST /doctor/sendpass
+  *send a new password for the doctor
+  *@method sendPassword
+  *@param {String} email
+  */
+module.exports.sendPassword = function(req,res){
+    if(_.has(req.body, &#x27;email&#x27;)){
+        dataAccess.doctor.getByEmail(req.body.email)
+        .then(function(doctor){
+            var password = util.string.randomGenerator(6,&#x27;letter&#x27;)+util.string.randomGenerator(2,&#x27;number&#x27;)+util.string.randomGenerator(2,&#x27;non-reg&#x27;);
+            util.mail.sendPassword(req.body.email,password)
+            .then(function(result){
+                dataAccess.doctor.resetPassword(req.body.email,password)
+                .then(function(result){
+                    res.json(result);
+                })
+                .fail(function(err){
+                    exceptions.errorResponse(res,err);
+                })
+                .done();
+            })
+            .fail(function(err){
+                exceptions.errorResponse(res,err);
+            })
+            .done()
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+/**
+  *POST /doctor/resetpass
+  *reset doctor&#x27;s password
+  *@method resetPassword
+  *@param {String} password
+  */
+module.exports.resetPassword = function(req,res){
+    if(_.has(req.doctor,&#x27;email&#x27;)  &amp;&amp; _.has(req.body,&#x27;password&#x27;)){
+        dataAccess.doctor.resetPassword(req.doctor.email,req.body.password)
+        .then(function(result){
+            res.json(result);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
 
     </pre>
 </div>
