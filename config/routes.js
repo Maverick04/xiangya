@@ -41,5 +41,9 @@ module.exports = function(app){
    app.post("/doctor/update",auth.basicAuthDoctor,doctorController.updateDoctor);
    app.post("/doctor/sendpass",doctorController.sendPassword);
    app.post("/doctor/resetpass",auth.basicAuthDoctor,doctorController.resetPassword);
+
+   //Record Resource
+   
+   //Docter Interfaces
     
 };
