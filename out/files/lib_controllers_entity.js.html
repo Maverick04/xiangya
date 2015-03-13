@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>lib/data_access/repositories/auth_history.js</title>
+    <title>lib/controllers/entity.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -105,89 +105,125 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: lib/data_access/repositories/auth_history.js</h1>
+<h1 class="file-heading">File: lib/controllers/entity.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- *@module Repositories
- *@class AuthRepositories
+ *@module Controllers
+ *@class EntityController
  */
 
-var _=require(&#x27;underscore&#x27;),
-    q=require(&#x27;q&#x27;),
-    dataModels = require(&#x27;../data_models&#x27;),
-    exceptions = require(&#x27;../../exceptions&#x27;);
-
-//Public functions
+var _ = require(&#x27;underscore&#x27;),
+    dataAccess = require(&#x27;../data_access&#x27;),
+    util = require(&#x27;../util&#x27;),
+    exceptions = require(&#x27;../exceptions&#x27;);
 
 /**
- *Intert a new record
- *@method authorise
- *@param {String} doctorid
- *@param {String} recordid
- *@param {String} operation
- *@return {Promise} authid
- */
-
-module.exports.authorise = function(doctorid,recordid,operation){
-    var def = q.defer();
-    
-    if(_.isNull(doctorid) || _.isUndefined(doctorid)) {
-        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: doctorid&#x27;)); 
-        return def.promise;
-    } 
-    if(_.isNull(recordid) || _.isUndefined(recordid)) {
-        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: recordid&#x27;)); 
-        return def.promise;
+  *POST /entity/create
+  *create a new entity
+  *@method createEntity
+  */
+module.exports.createEntity = function(req,res){
+    if(_.has(req.body,&#x27;type&#x27;) &amp;&amp; _.has(req.body,&#x27;images&#x27;)){
+        dataAccess.entity.insert(req.body.type,req.body.images.split(&#x27;,&#x27;))
+        .then(function(result){
+            res.json(result);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
     }
-    if(_.isNull(operation) || _.isUndefined(operation)) {
-        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: operation&#x27;)); 
-        return def.promise;
-    }
-    var auth_history = {
-        doctorId:doctorid,
-        recordId:recordid,
-        type:operation,
-        date:Date.now()
-    };
-
-    dataModels.Auth.findOneAndUpdate({&#x27;doctorId&#x27;:doctorid,&#x27;recordId&#x27;:recordid},auth_history,{upsert:true},function(err,res){
-        if(err) {
-            def.reject(err);
-        } else if(_.isNull(res)){
-            def.reject(new exceptions.ResourceNotFoundException(&#x27;Fail To Insert New Authorisation&#x27;));
-        } else {
-            def.resolve(res._id);
-        }
-    });
-    return def.promise;
 }
+
 
 /**
- *Get Auth Histories
- *@method getAuthHistory
- *@param {String} count
- *@return {Promise} auth history list
- */
-module.exports.getAuthHistory = function(count){
-    var def = q.defer();
-    if(_.isNull(count) || _.isUndefined(count)){
-        def.reject(new exceptions.ArgumentException(&#x27;Invalid Parameter: count&#x27;));
-        return def.promise;
+  *GET /entity/:entityid
+  *return details of a entity
+  *@method getById
+  */
+module.exports.getById = function(req,res){
+    if(_.has(req.params,&#x27;entityid&#x27;)){
+        dataAccess.entity.getById(req.params.entityid)
+        .then(function(result){
+            res.json(result);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
     }
-    var query = dataModels.Auth.find().limit(count).sort({&#x27;date&#x27;:-1});
-    query.exec(function(err,res){
-        if(err){
-            def.reject(err);
-        } else if(_.isNull(res)){
-            def.reject(new exceptions.ResourceNotFoundException(&quot;No Auth Histories&quot;));
-        } else {
-            def.resolve(res);
-        }
-    });
-    return def.promise;
 }
+
+
+/**
+  *POST /entity/addImage
+  *add a new image to entity
+  *@method addImage
+  */
+module.exports.addImage = function(req,res){
+    if(_.has(req.body,&#x27;entityid&#x27;) &amp;&amp; _.has(req.body,&#x27;image&#x27;)){
+        dataAccess.entity.addImage(req.body.entityid,req.body.image)
+        .then(function(result){
+            res.json(result);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+/**
+  *POST /entity/removeImage
+  *remove a image from entity
+  *@method removeImage
+  */
+module.exports.removeImage = function(req,res){
+    if(_.has(req.body,&#x27;entityid&#x27;) &amp;&amp; _.has(req.body,&#x27;image&#x27;)){
+        dataAccess.entity.removeImage(req.body.entityid,req.body.image)
+        .then(function(result){
+            res.json(result);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+
+/**
+  *POST /entity/remove
+  *remove a  entity
+  *@method remove
+  */
+module.exports.remove = function(req,res){
+    if(_.has(req.body,&#x27;entityid&#x27;)){
+        dataAccess.entity.removeById(req.body.entityid)
+        .then(function(result){
+            res.json(result);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res,new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
 
     </pre>
 </div>

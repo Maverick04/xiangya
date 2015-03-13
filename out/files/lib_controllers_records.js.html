@@ -47,6 +47,7 @@
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
                                 <li><a href="../classes/DoctorDataModel.html">DoctorDataModel</a></li>
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
+                                <li><a href="../classes/EntityController.html">EntityController</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
                                 <li><a href="../classes/image.html">image</a></li>
@@ -117,6 +118,219 @@ var _ = require(&#x27;underscore&#x27;),
     dataAccess = require(&#x27;../data_access&#x27;),
     util = require(&#x27;../util&#x27;),
     exceptions = require(&#x27;../exceptions&#x27;);
+
+
+/**
+ *POST /record/create
+ *@method createRecord
+ *@param {String} patientid
+ *@param {String} departmentid
+ *@param {String} hospitalName
+ *@param {String} keyword
+ *@param {String} details
+ */
+
+module.exports.createRecord = function(req,res){
+    if(_.has(req.body,&#x27;patientid&#x27;) &amp;&amp; _.has(req.body,&#x27;departmentid&#x27;) &amp;&amp; _.has(req.body,&#x27;hospitalName&#x27;) &amp;&amp; _.has(req.body,&#x27;keyword&#x27;) &amp;&amp; _.has(req.body,&#x27;details&#x27;)){
+        dataAccess.record.insertRecord(req.body.patientid,req.body.departmentid,req.body.hospitalName,req.body.keyword,req.body.details.split(&#x27;,&#x27;))
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+/**
+ *GET /record/:recordid
+ *@method getById
+ *@param {String} recordid
+ */
+module.exports.getById = function(req,res){
+    if(_.has(req.params,&#x27;recordid&#x27;)){
+        dataAccess.record.getById(req.params.recordid)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+/**
+ *POST /record/keyword
+ *@method updateKeyword
+ *@param {String} recordid
+ *@param {String} keyword
+ */
+module.exports.updateKeyword = function(req,res){
+    if(_.has(req.body,&#x27;recordid&#x27;) &amp;&amp; _.has(req.body,&#x27;keyword&#x27;)){
+        dataAccess.record.updateKeyword(req.body.recordid,req.body.keyword)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+/**
+ *POST /record/addentity
+ *@method addEntity
+ *@param {String} recordid
+ *@param {String} entityid
+ */
+module.exports.addEntity = function(req,res){
+    if(_.has(req.body,&#x27;recordid&#x27;) &amp;&amp; _.has(req.body,&#x27;entityid&#x27;)){
+        dataAccess.record.addEntity(req.body.recordid,req.body.entityid)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+/**
+ *POST /record/delentity
+ *@method removeEntity
+ *@param {String} recordid
+ *@param {String} entityid
+ */
+module.exports.removeEntity = function(req,res){
+    if(_.has(req.body,&#x27;recordid&#x27;) &amp;&amp; _.has(req.body,&#x27;entityid&#x27;)){
+        dataAccess.record.removeEntity(req.body.recordid,req.body.entityid)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+/**
+ *GET /record/keyword
+ *@method getByKeywords
+ *@param {String} keyword
+ */
+module.exports.getByKeywords = function(req,res){
+ if(_.has(req.params,&#x27;keyword&#x27;)){
+        dataAccess.record.getByKeywords(req.params.keyword)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+/**
+ *GET /record/doctor
+ *@method getByDoctor
+ */
+module.exports.getByDoctor = function(req,res){
+ if(_.has(req.doctor,&#x27;_id&#x27;)){
+        dataAccess.record.getByDoctor(req.doctor._id)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+/**
+ *GET /recordpat/:patientid
+ *@method getByPatient
+ *@param {String} patientid
+ */
+module.exports.getByPatient = function(req,res){
+ if(_.has(req.params,&#x27;patientid&#x27;)){
+        dataAccess.record.getByPatient(req.params.patientid)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+/**
+ *GET /recordauth/:recordid
+ *@method getByAuth
+ *@param {String} recordid
+ */
+module.exports.getByAuth = function(req,res){
+ if(_.has(req.doctor,&#x27;_id&#x27;) &amp;&amp; _.has(req.params,&#x27;recordid&#x27;)){
+        dataAccess.record.getByAuth(req.doctor._id,req.params.recordid)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
+
+
+/**
+ *GET /patients/:keyword
+ *@method getPatients
+ *@param {String} keyword
+ */
+module.exports.getPatients = function(req,res){
+ if(_.has(req.params,&#x27;keyword&#x27;)){
+        dataAccess.patient.getByKeyword(req.params.keyword)
+        .then(function(record){
+            res.json(record);
+        })
+        .fail(function(err){
+            exceptions.errorResponse(res,err);
+        })
+        .done();
+    } else {
+        exceptions.errorResponse(res, new exceptions.ArgumentException(&quot;Missing Parameter&quot;));
+    }
+}
 
 
     </pre>

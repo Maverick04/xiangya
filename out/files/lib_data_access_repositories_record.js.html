@@ -47,6 +47,7 @@
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
                                 <li><a href="../classes/DoctorDataModel.html">DoctorDataModel</a></li>
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
+                                <li><a href="../classes/EntityController.html">EntityController</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
                                 <li><a href="../classes/image.html">image</a></li>
@@ -126,7 +127,7 @@ var _=require(&#x27;underscore&#x27;),
  *@param {Object} record
  *@return {Promise} recordId
  */
-module.exports.insertRecord = function(patientid,departmentid,hospitalName,details){
+module.exports.insertRecord = function(patientid,departmentid,hospitalName,keyword,details){
     var def = q.defer();
     
     if(_.isNull(patientid) || _.isUndefined(patientid)) {
@@ -141,12 +142,16 @@ module.exports.insertRecord = function(patientid,departmentid,hospitalName,detai
         def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: hospitalName&#x27;)); 
         return def.promise;
     } 
+    if(_.isNull(keyword) || _.isUndefined(keyword)) {
+        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: keyword&#x27;)); 
+        return def.promise;
+    } 
     if(_.isNull(details) || _.isUndefined(details) || !_.isArray(details)) {
         def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: details&#x27;)); 
         return def.promise;
     } 
 
-    var record = new dataModels.Record({patientId:patientid,departmentId:departmentid,hospitalName:hospitalName,details:details});
+    var record = new dataModels.Record({patientId:patientid,departmentId:departmentid,hospitalName:hospitalName,keyword:keyword,details:details});
 
     record.save(function(err,res){
         if(err){
@@ -204,7 +209,7 @@ module.exports.getById = function(recordid){
  *@return {Promise} operation status
  */
 module.exports.removeById = function(recordid){
-   var def = q.defer(); 
+   var def = q.defer(); 4
    
    if(_.isNull(recordid) || _.isUndefined(recordid)){
        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: recordid&#x27;));
@@ -222,6 +227,97 @@ module.exports.removeById = function(recordid){
    return def.promise;
 }
 
+/**
+ *Update the keyword of a record
+ *@method updateKeyword
+ *@param {String} recordid
+ *@param {String} keyword
+ *@return {Promise} update status
+ */
+module.exports.updateKeyword  = function(recordid,keyword){
+    var def = q.defer();
+   
+    if(_.isNull(recordid) || _.isUndefined(recordid)){
+        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: recordid&#x27;));
+        return def.promise;
+    }
+    if(_.isNull(keyword) || _.isUndefined(keyword)){
+        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: keyword&#x27;));
+        return def.promise;
+    }
+    dataModels.Record.findByIdAndUpdate(recordid,{&#x27;keyword&#x27;:keyword},function(err,res){
+      if(err){
+          def.reject(err);
+      } else if(_.isNull(res)){
+          def.reject(new exceptions.ResourceNotFoundException(&#x27;No Record With Id: &#x27; + recordid));
+      } else {
+          def.resolve(true);
+      }
+    });
+    return def.promise;
+}
+
+
+/**
+ *Add one entity for the record
+ *@method addEntity
+ *@param {String} recordid
+ *@param {String} entityid
+ *@return {Promise} status
+ */
+module.exports.addEntity  = function(recordid,entityid){
+    var def = q.defer();
+   
+    if(_.isNull(recordid) || _.isUndefined(recordid)){
+        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: recordid&#x27;));
+        return def.promise;
+    }
+    if(_.isNull(entityid) || _.isUndefined(entityid)){
+        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: entity&#x27;));
+        return def.promise;
+    }
+    dataModels.Record.findByIdAndUpdate(recordid,{$addToSet:{details:entityid}},function(err,res){
+      if(err){
+          def.reject(err);
+      } else if(_.isNull(res)){
+          def.reject(new exceptions.ResourceNotFoundException(&#x27;No Record With Id: &#x27; + recordid));
+      } else {
+          def.resolve(true);
+      }
+    });
+    return def.promise;
+}
+
+
+/**
+ *Remove one entity for the record
+ *@method removeEntity
+ *@param {String} recordid
+ *@param {String} entityid
+ *@return {Promise} status
+ */
+module.exports.removeEntity  = function(recordid,entityid){
+    var def = q.defer();
+   
+    if(_.isNull(recordid) || _.isUndefined(recordid)){
+        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: recordid&#x27;));
+        return def.promise;
+    }
+    if(_.isNull(entityid) || _.isUndefined(entityid)){
+        def.reject(new exceptions.ArgumentException(&#x27;Invalid parameter: entity&#x27;));
+        return def.promise;
+    }
+    dataModels.Record.findByIdAndUpdate(recordid,{$pull:{details:entityid}},function(err,res){
+      if(err){
+          def.reject(err);
+      } else if(_.isNull(res)){
+          def.reject(new exceptions.ResourceNotFoundException(&#x27;No Record With Id: &#x27; + recordid));
+      } else {
+          def.resolve(true);
+      }
+    });
+    return def.promise;
+}
 
 /**
  *Search record
@@ -236,7 +332,17 @@ module.exports.getByKeywords = function(keyword){
        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: keyword&#x27;));
        return def.promise;
    }
-
+   
+   dataModels.Record.find({&#x27;keyword&#x27;:keyword},{&#x27;_id&#x27;:1,&#x27;departmentId&#x27;:1,&#x27;keyword&#x27;:1,&#x27;createDate&#x27;:1},function(err,res){
+       if(err){
+           def.reject(err);
+       } else if(_.isNull(res) || _.isEmpty(res)){
+           def.reject(new exceptions.ResourceNotFoundException(&quot;No Record With Keyword: &quot; + keyword));
+       } else {
+           def.resolve(res);
+       }
+   });
+   return def.promise; 
 }
 
 
@@ -244,36 +350,112 @@ module.exports.getByKeywords = function(keyword){
  *List all records of a doctor
  *@method getByDoctorId
  *@param {String} doctorid
- *@return {Promise} record digest list
+ *@return {Promise} record digest list(authenticated)
  */
-module.exports.getByDoctorId = function(doctorid){
+module.exports.getByDoctor = function(doctorid){
    var def = q.defer(); 
    
    if(_.isNull(doctorid) || _.isUndefined(doctorid)){
        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: doctorid&#x27;));
        return def.promise;
    }
+   dataModels.Auth.find({&#x27;doctorId&#x27;:doctorid,&#x27;type&#x27;:&#x27;true&#x27;},{&#x27;_id&#x27;:0,&#x27;recordId&#x27;:1},function(err,res){
+       if(err){
+           def.reject(err);
+       } else if(_.isNull(res) || _.isEmpty(res)){
+           def.reject(new exceptions.ResourceNotFoundException(&quot;No Available Records&quot;));
+       } else {
+           var resId=[];
+           _.each(res,function(id){resId.push(id.recordId);});
+           dataModels.Record.find({&#x27;_id&#x27;:{$in:resId}},{&#x27;_id&#x27;:1,&#x27;departmentId&#x27;:1,&#x27;keyword&#x27;:1,&#x27;createDate&#x27;:1},function(err,records){
+               if(err){
+                   def.reject(err);
+               } else if (_.isNull(records)){
+                   def.reject(new exceptions.ResourceNotFoundException(&#x27;No Available Records&#x27;));
+               } else {
+                   def.resolve(records);
+               }
+           });
+       }
+     });
+    return def.promise; 
 }
 
 
 /**
- *List all records of a patients to a doctor
- *@method getByPatientAndDoctor
- *@param {String} doctorid
+ *List all records of a patients
+ *@method getByPatient
  *@param {String} patiendid
- *@return {Promise} record digest list
+ *@return {Promise} record digest list(authenticated)
  */
-module.exports.getByPatientAndDoctor = function(patientid,doctorid){
+module.exports.getByPatient = function(patientid){
    var def = q.defer(); 
-   
-   if(_.isNull(doctorid) || _.isUndefined(doctorid)){
-       def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: doctorid&#x27;));
-       return def.promise;
-   }
+    
    if(_.isNull(patientid) || _.isUndefined(patientid)){
        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: patientid&#x27;));
        return def.promise;
    }
+
+   dataModels.Record.find({&#x27;patientId&#x27;:patientid},{&#x27;_id&#x27;:1,&#x27;departmentId&#x27;:1,&#x27;keyword&#x27;:1,&#x27;createDate&#x27;:1},function(err,res){
+      if(err){
+          def.reject(err);
+      } else if(_.isNull(res)){
+          def.reject(new exceptions.ResourceNotFoundException(&#x27;No Record With Id: &#x27; + recordid));
+      } else {
+          def.resolve(res);
+      }
+   });
+   return def.promise;
+}
+
+
+/**
+ *return the record detail if authenticated
+ *@method getByAuth
+ *@param {String} doctorid
+ *@param {String} recordid
+ *@return {Promise} record digest list(authenticated)
+ */
+module.exports.getByAuth = function(doctorid, recordid){
+   var def = q.defer(); 
+   if(_.isNull(doctorid) || _.isUndefined(doctorid)){
+       def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: doctorid&#x27;));
+       return def.promise;
+   }
+   if(_.isNull(recordid) || _.isUndefined(recordid)){
+       def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: recordid&#x27;));
+       return def.promise;
+   }
+
+   dataModels.Auth.count({&#x27;doctorId&#x27;:doctorid,&#x27;recordId&#x27;:recordid,&#x27;type&#x27;:true},function(err,count){
+       if(err){
+           def.reject(err);
+       } else if (count == 0){
+           def.reject(new exceptions.ResourceNotFoundException(&quot;No Authenticated&quot;));
+       } else {
+           dataModels.Record.findById(recordid,{&#x27;__v&#x27;:0},function(err,res){
+               if(err){
+                   def.reject(err);
+               } else if(_.isNull(res)){
+                   def.reject(new exceptions.ResourceNotFoundException(&#x27;No Record With Id: &#x27; + recordid));
+               } else {
+                   dataModels.Entity.find({&#x27;_id&#x27;:{$in:res.details}},{&#x27;__v&#x27;:0},function(err,detail){
+                       if(err){
+                           def.reject(err);
+                       } else if(_.isNull(detail)){
+                           def.reject(new exceptions.ResourceNotFoundException(&#x27;No Details For This Record&#x27;));
+                       } else {
+                           res = res.toObject();
+                           res.details = detail;
+                           def.resolve(res);
+                      }
+                  });
+               }
+          });
+       }
+   });
+ 
+   return def.promise;
 }
 
     </pre>

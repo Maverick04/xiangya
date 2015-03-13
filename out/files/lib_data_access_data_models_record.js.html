@@ -47,6 +47,7 @@
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
                                 <li><a href="../classes/DoctorDataModel.html">DoctorDataModel</a></li>
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
+                                <li><a href="../classes/EntityController.html">EntityController</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
                                 <li><a href="../classes/image.html">image</a></li>
@@ -123,7 +124,7 @@ var recordSchema = new Schema({
     patientId:ObjectId,
     departmentId:ObjectId,
     hospitalName:String,
-    keywords:[String],
+    keyword:String,
     details:[ObjectId],
     createDate:{type:Date,default:new Date()}
 });

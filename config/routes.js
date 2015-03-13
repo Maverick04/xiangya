@@ -2,6 +2,8 @@ var _ = require('underscore'),
     auth = require('./auth'),
     multer = require('multer'),
     userController = require('../lib/controllers/users'),
+    entityController = require('../lib/controllers/entity'),
+    recordController = require('../lib/controllers/records'),
     doctorController = require('../lib/controllers/doctors');
 //Append the controllers behind
 
@@ -16,8 +18,6 @@ module.exports = function(app){
    app.post('/upload/user',multer({dest:'./images/uprofile'}),function(req,res){ res.json(req.files); });
    app.post('/upload/doctor',multer({dest:'./images/dprofile'}),function(req,res){ res.json(req.files); });
    app.post('/upload/record',multer({dest:'./images/records'}),function(req,res){ res.json(req.files); });
-    
-
 
   
    //Append other routes
@@ -43,7 +43,22 @@ module.exports = function(app){
    app.post("/doctor/resetpass",auth.basicAuthDoctor,doctorController.resetPassword);
 
    //Record Resource
+   app.post("/record/create",auth.basicAuth,recordController.createRecord);
+   app.get("/record/:recordid",auth.basicAuth,recordController.getById);
+   app.post("/record/keyword",auth.basicAuth,recordController.updateKeyword);
+   app.post("/record/addentity",auth.basicAuth,recordController.addEntity);
+   app.post("/record/delentity",auth.basicAuth,recordController.removeEntity);
+   app.get("/record/keyword/:keyword",auth.basicAuthDoctor,recordController.getByKeywords);
+   app.get("/recorddoc",auth.basicAuthDoctor,recordController.getByDoctor);
+   app.get("/recordpat/:patientid",auth.basicAuthDoctor,recordController.getByPatient);
+   app.get("/recordauth/:recordid",auth.basicAuthDoctor,recordController.getByAuth);
+   app.get("/patients/:keyword",auth.basicAuthDoctor,recordController.getPatients);
    
-   //Docter Interfaces
-    
+   //Entity Resource
+   app.post("/entity/create",auth.basicAuth,entityController.createEntity);
+   app.get("/entity/:entityid",auth.basicAuth,entityController.getById);
+   app.post("/entity/addImage",auth.basicAuth,entityController.addImage);
+   app.post("/entity/removeImage",auth.basicAuth,entityController.removeImage);
+   app.post("/entity/remove",auth.basicAuth,entityController.remove);
+
 };

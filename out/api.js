@@ -9,6 +9,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "DoctorController",
         "DoctorDataModel",
         "DoctorRepositories",
+        "EntityController",
         "EntityRepositories",
         "ForbiddenOperationException",
         "PatientDataModel",

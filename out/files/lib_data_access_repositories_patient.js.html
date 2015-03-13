@@ -47,6 +47,7 @@
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
                                 <li><a href="../classes/DoctorDataModel.html">DoctorDataModel</a></li>
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
+                                <li><a href="../classes/EntityController.html">EntityController</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
                                 <li><a href="../classes/image.html">image</a></li>
@@ -263,6 +264,31 @@ module.exports.getById = function(patientid){
             def.reject(new exceptions.ResourceNotFoundException(&quot;No patient with id: &quot; + patientid));
         } else {
             def.resolve(res.toObject());
+        }
+   });
+   return def.promise;
+}
+
+/**
+ *Search patient
+ *@method getByKeyword
+ *@param {String} keyword
+ *@return {Promise} patient list
+ */
+module.exports.getByKeyword = function(keyword){
+   var def = q.defer();
+
+   if(_.isNull(keyword) || _.isUndefined(keyword)){
+       def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: keyword&#x27;));
+       return def.promise;
+   }
+   dataModels.Patient.find({name:keyword},{__v:0},function(err,res){
+        if(err){
+            def.reject(err);
+        } else if (_.isNull(res)){
+            def.reject(new exceptions.ResourceNotFoundException(&quot;No patient with name: &quot; + keyword));
+        } else {
+            def.resolve(res);
         }
    });
    return def.promise;

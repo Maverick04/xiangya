@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>lib/data_access/repositories/auth_history.js</title>
+    <title>EntityController</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -105,91 +105,234 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: lib/data_access/repositories/auth_history.js</h1>
+<h1>EntityController Class</h1>
+<div class="box meta">
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
- *@module Repositories
- *@class AuthRepositories
- */
 
-var _=require(&#x27;underscore&#x27;),
-    q=require(&#x27;q&#x27;),
-    dataModels = require(&#x27;../data_models&#x27;),
-    exceptions = require(&#x27;../../exceptions&#x27;);
+        <div class="foundat">
+            Defined in: <a href="../files/lib_controllers_entity.js.html#l1"><code>lib&#x2F;controllers&#x2F;entity.js:1</code></a>
+        </div>
 
-//Public functions
+            Module: <a href="../modules/Controllers.html">Controllers</a>
 
-/**
- *Intert a new record
- *@method authorise
- *@param {String} doctorid
- *@param {String} recordid
- *@param {String} operation
- *@return {Promise} authid
- */
+</div>
 
-module.exports.authorise = function(doctorid,recordid,operation){
-    var def = q.defer();
+
+<div class="box intro">
     
-    if(_.isNull(doctorid) || _.isUndefined(doctorid)) {
-        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: doctorid&#x27;)); 
-        return def.promise;
-    } 
-    if(_.isNull(recordid) || _.isUndefined(recordid)) {
-        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: recordid&#x27;)); 
-        return def.promise;
-    }
-    if(_.isNull(operation) || _.isUndefined(operation)) {
-        def.reject(exceptions.ArgumentException(&#x27;Invalid parameter: operation&#x27;)); 
-        return def.promise;
-    }
-    var auth_history = {
-        doctorId:doctorid,
-        recordId:recordid,
-        type:operation,
-        date:Date.now()
-    };
+</div>
 
-    dataModels.Auth.findOneAndUpdate({&#x27;doctorId&#x27;:doctorid,&#x27;recordId&#x27;:recordid},auth_history,{upsert:true},function(err,res){
-        if(err) {
-            def.reject(err);
-        } else if(_.isNull(res)){
-            def.reject(new exceptions.ResourceNotFoundException(&#x27;Fail To Insert New Authorisation&#x27;));
-        } else {
-            def.resolve(res._id);
-        }
-    });
-    return def.promise;
-}
 
-/**
- *Get Auth Histories
- *@method getAuthHistory
- *@param {String} count
- *@return {Promise} auth history list
- */
-module.exports.getAuthHistory = function(count){
-    var def = q.defer();
-    if(_.isNull(count) || _.isUndefined(count)){
-        def.reject(new exceptions.ArgumentException(&#x27;Invalid Parameter: count&#x27;));
-        return def.promise;
-    }
-    var query = dataModels.Auth.find().limit(count).sort({&#x27;date&#x27;:-1});
-    query.exec(function(err,res){
-        if(err){
-            def.reject(err);
-        } else if(_.isNull(res)){
-            def.reject(new exceptions.ResourceNotFoundException(&quot;No Auth Histories&quot;));
-        } else {
-            def.resolve(res);
-        }
-    });
-    return def.promise;
-}
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
 
-    </pre>
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_addImage">addImage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_createEntity">createEntity</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getById">getById</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_remove">remove</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_removeImage">removeImage</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_addImage" class="method item">
+    <h3 class="name"><code>addImage</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_entity.js.html#l53"><code>lib&#x2F;controllers&#x2F;entity.js:53</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /entity/addImage
+add a new image to entity</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_createEntity" class="method item">
+    <h3 class="name"><code>createEntity</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_entity.js.html#l11"><code>lib&#x2F;controllers&#x2F;entity.js:11</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /entity/create
+create a new entity</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_getById" class="method item">
+    <h3 class="name"><code>getById</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_entity.js.html#l32"><code>lib&#x2F;controllers&#x2F;entity.js:32</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>GET /entity/:entityid
+return details of a entity</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_remove" class="method item">
+    <h3 class="name"><code>remove</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_entity.js.html#l96"><code>lib&#x2F;controllers&#x2F;entity.js:96</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /entity/remove
+remove a  entity</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_removeImage" class="method item">
+    <h3 class="name"><code>removeImage</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_controllers_entity.js.html#l74"><code>lib&#x2F;controllers&#x2F;entity.js:74</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>POST /entity/removeImage
+remove a image from entity</p>
+
+    </div>
+
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
 </div>
                     </div>
                 </div>

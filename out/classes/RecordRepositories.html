@@ -47,6 +47,7 @@
                                 <li><a href="../classes/DoctorController.html">DoctorController</a></li>
                                 <li><a href="../classes/DoctorDataModel.html">DoctorDataModel</a></li>
                                 <li><a href="../classes/DoctorRepositories.html">DoctorRepositories</a></li>
+                                <li><a href="../classes/EntityController.html">EntityController</a></li>
                                 <li><a href="../classes/EntityRepositories.html">EntityRepositories</a></li>
                                 <li><a href="../classes/ForbiddenOperationException.html">ForbiddenOperationException</a></li>
                                 <li><a href="../classes/image.html">image</a></li>
@@ -138,6 +139,14 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
+                                <a href="#method_addEntity">addEntity</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getByAuth">getByAuth</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_getByDoctorId">getByDoctorId</a>
 
                             </li>
@@ -150,7 +159,7 @@
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getByPatientAndDoctor">getByPatientAndDoctor</a>
+                                <a href="#method_getByPatient">getByPatient</a>
 
                             </li>
                             <li class="index-item method">
@@ -159,6 +168,14 @@
                             </li>
                             <li class="index-item method">
                                 <a href="#method_removeById">removeById</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_removeEntity">removeEntity</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_updateKeyword">updateKeyword</a>
 
                             </li>
                     </ul>
@@ -171,6 +188,162 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
+<div id="method_addEntity" class="method item">
+    <h3 class="name"><code>addEntity</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>recordid</code>
+                </li>
+                <li class="arg">
+                        <code>entityid</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_data_access_repositories_record.js.html#l150"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:150</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Add one entity for the record</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">recordid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">entityid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>status</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getByAuth" class="method item">
+    <h3 class="name"><code>getByAuth</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>doctorid</code>
+                </li>
+                <li class="arg">
+                        <code>recordid</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_data_access_repositories_record.js.html#l301"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:301</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>return the record detail if authenticated</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">doctorid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">recordid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>record digest list(authenticated)</p>
+
+            </div>
+        </div>
+
+
+</div>
 <div id="method_getByDoctorId" class="method item">
     <h3 class="name"><code>getByDoctorId</code></h3>
 
@@ -195,7 +368,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_record.js.html#l133"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:133</code></a>
+        <a href="../files/lib_data_access_repositories_record.js.html#l238"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:238</code></a>
         </p>
 
 
@@ -229,7 +402,7 @@
 
             <div class="returns-description">
                         <span class="type">Promise</span>:
-                    <p>record digest list</p>
+                    <p>record digest list(authenticated)</p>
 
             </div>
         </div>
@@ -260,7 +433,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_record.js.html#l53"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:53</code></a>
+        <a href="../files/lib_data_access_repositories_record.js.html#l57"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:57</code></a>
         </p>
 
 
@@ -325,7 +498,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_record.js.html#l116"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:116</code></a>
+        <a href="../files/lib_data_access_repositories_record.js.html#l211"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:211</code></a>
         </p>
 
 
@@ -366,14 +539,11 @@
 
 
 </div>
-<div id="method_getByPatientAndDoctor" class="method item">
-    <h3 class="name"><code>getByPatientAndDoctor</code></h3>
+<div id="method_getByPatient" class="method item">
+    <h3 class="name"><code>getByPatient</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>doctorid</code>
-                </li>
                 <li class="arg">
                         <code>patiendid</code>
                 </li>
@@ -393,7 +563,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_record.js.html#l149"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:149</code></a>
+        <a href="../files/lib_data_access_repositories_record.js.html#l274"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:274</code></a>
         </p>
 
 
@@ -401,7 +571,7 @@
     </div>
 
     <div class="description">
-        <p>List all records of a patients to a doctor</p>
+        <p>List all records of a patients</p>
 
     </div>
 
@@ -409,16 +579,6 @@
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">doctorid</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                </li>
                 <li class="param">
                         <code class="param-name">patiendid</code>
                         <span class="type">String</span>
@@ -437,7 +597,7 @@
 
             <div class="returns-description">
                         <span class="type">Promise</span>:
-                    <p>record digest list</p>
+                    <p>record digest list(authenticated)</p>
 
             </div>
         </div>
@@ -533,7 +693,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_data_access_repositories_record.js.html#l90"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:90</code></a>
+        <a href="../files/lib_data_access_repositories_record.js.html#l94"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:94</code></a>
         </p>
 
 
@@ -568,6 +728,162 @@
             <div class="returns-description">
                         <span class="type">Promise</span>:
                     <p>operation status</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_removeEntity" class="method item">
+    <h3 class="name"><code>removeEntity</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>recordid</code>
+                </li>
+                <li class="arg">
+                        <code>entityid</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_data_access_repositories_record.js.html#l181"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:181</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Remove one entity for the record</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">recordid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">entityid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>status</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_updateKeyword" class="method item">
+    <h3 class="name"><code>updateKeyword</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>recordid</code>
+                </li>
+                <li class="arg">
+                        <code>keyword</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_data_access_repositories_record.js.html#l119"><code>lib&#x2F;data_access&#x2F;repositories&#x2F;record.js:119</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Update the keyword of a record</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">recordid</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">keyword</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>update status</p>
 
             </div>
         </div>

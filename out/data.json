@@ -23,6 +23,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "lib/controllers/entity.js": {
+            "name": "lib/controllers/entity.js",
+            "modules": {},
+            "classes": {
+                "EntityController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "lib/controllers/records.js": {
             "name": "lib/controllers/records.js",
             "modules": {},
@@ -269,6 +278,7 @@
             "submodules": {},
             "classes": {
                 "DoctorController": 1,
+                "EntityController": 1,
                 "RecordController": 1,
                 "UserController": 1
             },
@@ -397,6 +407,19 @@
             "module": "Controllers",
             "namespace": "",
             "file": "lib/controllers/doctors.js",
+            "line": 1
+        },
+        "EntityController": {
+            "name": "EntityController",
+            "shortname": "EntityController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Controllers",
+            "namespace": "",
+            "file": "lib/controllers/entity.js",
             "line": 1
         },
         "RecordController": {
@@ -857,6 +880,239 @@
             "module": "Controllers"
         },
         {
+            "file": "lib/controllers/entity.js",
+            "line": 11,
+            "description": "POST /entity/create\ncreate a new entity",
+            "itemtype": "method",
+            "name": "createEntity",
+            "class": "EntityController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/entity.js",
+            "line": 32,
+            "description": "GET /entity/:entityid\nreturn details of a entity",
+            "itemtype": "method",
+            "name": "getById",
+            "class": "EntityController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/entity.js",
+            "line": 53,
+            "description": "POST /entity/addImage\nadd a new image to entity",
+            "itemtype": "method",
+            "name": "addImage",
+            "class": "EntityController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/entity.js",
+            "line": 74,
+            "description": "POST /entity/removeImage\nremove a image from entity",
+            "itemtype": "method",
+            "name": "removeImage",
+            "class": "EntityController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/entity.js",
+            "line": 96,
+            "description": "POST /entity/remove\nremove a  entity",
+            "itemtype": "method",
+            "name": "remove",
+            "class": "EntityController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 12,
+            "description": "POST /record/create",
+            "itemtype": "method",
+            "name": "createRecord",
+            "params": [
+                {
+                    "name": "patientid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "departmentid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "hospitalName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "keyword",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "details",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 37,
+            "description": "GET /record/:recordid",
+            "itemtype": "method",
+            "name": "getById",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 57,
+            "description": "POST /record/keyword",
+            "itemtype": "method",
+            "name": "updateKeyword",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "keyword",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 78,
+            "description": "POST /record/addentity",
+            "itemtype": "method",
+            "name": "addEntity",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 99,
+            "description": "POST /record/delentity",
+            "itemtype": "method",
+            "name": "removeEntity",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 121,
+            "description": "GET /record/keyword",
+            "itemtype": "method",
+            "name": "getByKeywords",
+            "params": [
+                {
+                    "name": "keyword",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 142,
+            "description": "GET /record/doctor",
+            "itemtype": "method",
+            "name": "getByDoctor",
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 162,
+            "description": "GET /recordpat/:patientid",
+            "itemtype": "method",
+            "name": "getByPatient",
+            "params": [
+                {
+                    "name": "patientid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 183,
+            "description": "GET /recordauth/:recordid",
+            "itemtype": "method",
+            "name": "getByAuth",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
+            "file": "lib/controllers/records.js",
+            "line": 204,
+            "description": "GET /patients/:keyword",
+            "itemtype": "method",
+            "name": "getPatients",
+            "params": [
+                {
+                    "name": "keyword",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "RecordController",
+            "module": "Controllers"
+        },
+        {
             "file": "lib/controllers/users.js",
             "line": 13,
             "description": "POST /user/account\nregister a user in the system",
@@ -1062,6 +1318,26 @@
             ],
             "return": {
                 "description": "authid",
+                "type": "Promise"
+            },
+            "class": "AuthRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/auth_history.js",
+            "line": 56,
+            "description": "Get Auth Histories",
+            "itemtype": "method",
+            "name": "getAuthHistory",
+            "params": [
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "auth history list",
                 "type": "Promise"
             },
             "class": "AuthRepositories",
@@ -1416,6 +1692,26 @@
             "module": "Repositories"
         },
         {
+            "file": "lib/data_access/repositories/patient.js",
+            "line": 161,
+            "description": "Search patient",
+            "itemtype": "method",
+            "name": "getByKeyword",
+            "params": [
+                {
+                    "name": "keyword",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "patient list",
+                "type": "Promise"
+            },
+            "class": "PatientRepositories",
+            "module": "Repositories"
+        },
+        {
             "file": "lib/data_access/repositories/record.js",
             "line": 13,
             "description": "Intert a new record",
@@ -1437,7 +1733,7 @@
         },
         {
             "file": "lib/data_access/repositories/record.js",
-            "line": 53,
+            "line": 57,
             "description": "Get record detail by Id",
             "itemtype": "method",
             "name": "getById",
@@ -1457,7 +1753,7 @@
         },
         {
             "file": "lib/data_access/repositories/record.js",
-            "line": 90,
+            "line": 94,
             "description": "Remove record",
             "itemtype": "method",
             "name": "removeById",
@@ -1477,7 +1773,82 @@
         },
         {
             "file": "lib/data_access/repositories/record.js",
-            "line": 116,
+            "line": 119,
+            "description": "Update the keyword of a record",
+            "itemtype": "method",
+            "name": "updateKeyword",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "keyword",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "update status",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 150,
+            "description": "Add one entity for the record",
+            "itemtype": "method",
+            "name": "addEntity",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "status",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 181,
+            "description": "Remove one entity for the record",
+            "itemtype": "method",
+            "name": "removeEntity",
+            "params": [
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "entityid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "status",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 211,
             "description": "Search record",
             "itemtype": "method",
             "name": "getByKeywords",
@@ -1497,7 +1868,7 @@
         },
         {
             "file": "lib/data_access/repositories/record.js",
-            "line": 133,
+            "line": 238,
             "description": "List all records of a doctor",
             "itemtype": "method",
             "name": "getByDoctorId",
@@ -1509,7 +1880,7 @@
                 }
             ],
             "return": {
-                "description": "record digest list",
+                "description": "record digest list(authenticated)",
                 "type": "Promise"
             },
             "class": "RecordRepositories",
@@ -1517,16 +1888,11 @@
         },
         {
             "file": "lib/data_access/repositories/record.js",
-            "line": 149,
-            "description": "List all records of a patients to a doctor",
+            "line": 274,
+            "description": "List all records of a patients",
             "itemtype": "method",
-            "name": "getByPatientAndDoctor",
+            "name": "getByPatient",
             "params": [
-                {
-                    "name": "doctorid",
-                    "description": "",
-                    "type": "String"
-                },
                 {
                     "name": "patiendid",
                     "description": "",
@@ -1534,7 +1900,32 @@
                 }
             ],
             "return": {
-                "description": "record digest list",
+                "description": "record digest list(authenticated)",
+                "type": "Promise"
+            },
+            "class": "RecordRepositories",
+            "module": "Repositories"
+        },
+        {
+            "file": "lib/data_access/repositories/record.js",
+            "line": 301,
+            "description": "return the record detail if authenticated",
+            "itemtype": "method",
+            "name": "getByAuth",
+            "params": [
+                {
+                    "name": "doctorid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "recordid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "record digest list(authenticated)",
                 "type": "Promise"
             },
             "class": "RecordRepositories",
