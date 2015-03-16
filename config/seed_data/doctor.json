@@ -8,7 +8,6 @@
         "name":"帛新平",
         "sex":"false",
         "birthday":"Wed Mar 04 1982 15:34:31 GMT+0800 (CST)",
-        "profile_image":"female.png",
         "introduction":"掌握国内外本科技术发展情况，并能吸取最新科研成就应用于实际工作",
         "title":"住院医师"
     },
@@ -21,7 +20,6 @@
         "name":"刘昕雁",
         "sex":"true",
         "birthday":"Wed Mar 20 1975 15:34:31 GMT+0800 (CST)",
-        "profile_image":"male.png",
         "introduction":"有丰富的临床或技术工作经验，能熟练地掌握本科技术操作，解决本科复杂疑难问题。",
         "title":"主治医师"
     },
@@ -34,7 +32,6 @@
         "name":"商灵凡",
         "sex":"true",
         "birthday":"Wed Jan 20 1970 15:34:31 GMT+0800 (CST)",
-        "profile_image":"male.png",
         "introduction":"善于指导本科全面业务，能为医疗、教学和科研培养出高级人才",
         "title":"主任医师"
     }
