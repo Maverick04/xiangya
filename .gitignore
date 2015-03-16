@@ -1,7 +1,6 @@
 *.swp
 *.log
 *.seed
-.env
 *.csv
 *.pid
 *.out
@@ -11,5 +10,4 @@ images/
 node_modules
 test/
 config/Procfile*
-scripts/
 npm-debug.log
