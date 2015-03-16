@@ -9,5 +9,4 @@
 images/
 node_modules
 test/
-config/Procfile*
 npm-debug.log
