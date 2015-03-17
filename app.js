@@ -127,7 +127,7 @@ app.post('/upload/doctor',multer({dest:'./images/dprofile/'}),function(req,res){
 app.post('/upload/record',multer({dest:'./images/records/'}),function(req,res){ res.json(req.files); });
 
 
-app.use(timeout('2s'));
+app.use(timeout('5s'));
 app.use(morgan('dev',{stream:logStream}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());

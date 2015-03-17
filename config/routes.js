@@ -30,6 +30,7 @@ module.exports = function(app){
    app.post("/user/updateProfile",auth.basicAuth,userController.updateProfile);
    app.post("/user/sendPassword",userController.sendPassword);
    app.post("/user/resetPassword",auth.basicAuth,userController.resetPassword);
+   app.post("/user/bindPatient",auth.basicAuth,userController.bindPatient);
    app.post("/user/unbindPatient",auth.basicAuth,userController.unbindPatient);
    app.get("/user/patient/:patientid",auth.basicAuth,userController.getPatientById);
    app.get("/user/patients",auth.basicAuth,userController.getAllPatients);
