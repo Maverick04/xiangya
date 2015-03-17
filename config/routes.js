@@ -15,9 +15,9 @@ module.exports = function(app){
         res.end();
    });
 
-   app.post('/upload/user',multer({dest:'./images/uprofile'}),function(req,res){ res.json(req.files); });
-   app.post('/upload/doctor',multer({dest:'./images/dprofile'}),function(req,res){ res.json(req.files); });
-   app.post('/upload/record',multer({dest:'./images/records'}),function(req,res){ res.json(req.files); });
+   //app.post('/upload/user',multer({dest:'./upload/'}),function(req,res){ res.json(req.files); });
+   //app.post('/upload/doctor',multer({dest:'../images/dprofile/'}),function(req,res){ res.json(req.files); });
+   //app.post('/upload/record',multer({dest:'../images/records/'}),function(req,res){ res.json(req.files); });
 
   
    //Append other routes

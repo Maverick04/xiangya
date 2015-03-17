@@ -118,11 +118,18 @@ process.on('uncaughtException',function(error){
     });
 });
 
+app.post('/upload/user',multer({dest:'./images/uprofile/'}),function(req,res){ res.json(req.files); });
+app.post('/upload/doctor',multer({dest:'./images/dprofile/'}),function(req,res){ res.json(req.files); });
+app.post('/upload/record',multer({dest:'./images/records/'}),function(req,res){ res.json(req.files); });
+
+
 app.use(timeout('2s'));
 app.use(morgan('dev',{stream:logStream}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(multer());
+
+
 
 //Routing setup 
 require('./config/routes')(app);
