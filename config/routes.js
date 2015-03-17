@@ -1,6 +1,7 @@
 var _ = require('underscore'),
     auth = require('./auth'),
-    multer = require('multer'),
+    express = require('express'),
+    config = require('./config'),
     userController = require('../lib/controllers/users'),
     entityController = require('../lib/controllers/entity'),
     recordController = require('../lib/controllers/records'),
@@ -14,12 +15,12 @@ module.exports = function(app){
         res.write("Server is OK!");
         res.end();
    });
+    
+   app.use("/images/user/",express.static(config().userProfile));
+   app.use("/images/doctor/",express.static(config().doctorProfile));
+   app.use("/images/record/",express.static(config().recordImage));
+   
 
-   //app.post('/upload/user',multer({dest:'./upload/'}),function(req,res){ res.json(req.files); });
-   //app.post('/upload/doctor',multer({dest:'../images/dprofile/'}),function(req,res){ res.json(req.files); });
-   //app.post('/upload/record',multer({dest:'../images/records/'}),function(req,res){ res.json(req.files); });
-
-  
    //Append other routes
    //User Account Resource
    app.post("/user/account",userController.registerUser);

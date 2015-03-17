@@ -35,6 +35,10 @@ if(app.get('env') === "development"){
 
 
 //Create images folders
+if (!fs.existsSync('./images')) {
+    fs.mkdirSync('./images/');
+}
+
 if (!fs.existsSync(config().userProfile)) {
     fs.mkdirSync(config().userProfile);
 }

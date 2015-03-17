@@ -1,7 +1,6 @@
 var _ = require('underscore'),
     path = require('path'),
-    fs = require('fs'),
-    mkdirp = require('mkdirp');
+    fs = require('fs');
 
 module.exports = function() {
     var paths = {
