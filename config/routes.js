@@ -46,7 +46,7 @@ module.exports = function(app){
 
    //Record Resource
    app.post("/record/create",auth.basicAuth,recordController.createRecord);
-   app.get("/record/:recordid",auth.basicAuth,recordController.getById);
+   app.get("/record/:recordid",recordController.getById);
    app.post("/record/keyword",auth.basicAuth,recordController.updateKeyword);
    app.post("/record/addentity",auth.basicAuth,recordController.addEntity);
    app.post("/record/delentity",auth.basicAuth,recordController.removeEntity);
