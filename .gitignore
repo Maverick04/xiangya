@@ -6,7 +6,6 @@
 *.out
 *.dat
 *.gz
-images/
 node_modules
 test/
 npm-debug.log
