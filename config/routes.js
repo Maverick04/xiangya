@@ -53,6 +53,7 @@ module.exports = function(app){
    app.get("/record/keyword/:keyword",auth.basicAuthDoctor,recordController.getByKeywords);
    app.get("/recorddoc",auth.basicAuthDoctor,recordController.getByDoctor);
    app.get("/recordpat/:patientid",auth.basicAuthDoctor,recordController.getByPatient);
+   app.get("/recorduser",auth.basicAuth,recordController.getByUser);
    app.get("/recordauth/:recordid",auth.basicAuthDoctor,recordController.getByAuth);
    app.get("/patients/:keyword",auth.basicAuthDoctor,recordController.getPatients);
    
