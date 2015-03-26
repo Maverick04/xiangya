@@ -2,22 +2,29 @@
     {
         "_id":"54f6c71fb58c6251a218ab2d",
         "doctorId":"54f6b97ea5e1770cedef7abe",
-        "recordId":"54f6b4bacbccb170285496f1",
+        "recordId":"54f6bc2fab5aa02fc9c10062",
         "date":"Wed Feb 25 2015 16:51:56 GMT+0800 (CST)",
         "type":true
     },
     {
         "_id":"54f6c71fb58c6251a218ab2e",
         "doctorId":"54f6b97ea5e1770cedef7abe",
-        "recordId":"54f6b4bacbccb170285496f2",
+        "recordId":"54f6bc2fab5aa02fc9c10063",
         "date":"Wed Mar 04 2015 16:51:56 GMT+0800 (CST)",
         "type":true
     },
     {
         "_id":"54f6c71fb58c6251a218ab2f",
         "doctorId":"54f6b97ea5e1770cedef7abe",
-        "recordId":"54f6b4bacbccb170285496f1",
+        "recordId":"54f6bc2fab5aa02fc9c10064",
         "date":"Wed Mar 04 2015 16:51:56 GMT+0800 (CST)",
-        "type":false
+        "type":true
+    },
+    {
+        "_id":"54f6c71fb58c6251a218ab2g",
+        "doctorId":"54f6b97ea5e1770cedef7abe",
+        "recordId":"54f6bc2fab5aa02fc9c10065",
+        "date":"Wed Mar 04 2015 16:51:56 GMT+0800 (CST)",
+        "type":true
     }
 ]
