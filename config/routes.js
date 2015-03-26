@@ -39,6 +39,7 @@ module.exports = function(app){
    app.get("/doctor/account",auth.basicAuthDoctor,function(req,res){res.status(200).send(req.doctor);});
    app.get("/doctor/account/:name",doctorController.getDoctorByName);
    app.get("/doctor/department",doctorController.getAllDepartments);
+   app.get("/doctors/:departmentid",doctorController.getDoctorsByDepartment);
    app.post("/doctor/account",doctorController.registerDoctor);
    app.post("/doctor/update",auth.basicAuthDoctor,doctorController.updateDoctor);
    app.post("/doctor/sendpass",doctorController.sendPassword);
@@ -50,6 +51,7 @@ module.exports = function(app){
    app.post("/record/keyword",auth.basicAuth,recordController.updateKeyword);
    app.post("/record/addentity",auth.basicAuth,recordController.addEntity);
    app.post("/record/delentity",auth.basicAuth,recordController.removeEntity);
+   app.post("/recorddel/:recordid",auth.basicAuth,recordController.remove);
    app.get("/record/keyword/:keyword",auth.basicAuthDoctor,recordController.getByKeywords);
    app.get("/recorddoc",auth.basicAuthDoctor,recordController.getByDoctor);
    app.get("/recordpat/:patientid",auth.basicAuthDoctor,recordController.getByPatient);
