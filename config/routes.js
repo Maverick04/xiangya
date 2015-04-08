@@ -58,6 +58,9 @@ module.exports = function(app){
    app.get("/recorduser",auth.basicAuth,recordController.getByUser);
    app.get("/recordauth/:recordid",auth.basicAuthDoctor,recordController.getByAuth);
    app.get("/patients/:keyword",auth.basicAuthDoctor,recordController.getPatients);
+   app.post("/recordauth",auth.basicAuth,recordController.recordauth);
+   app.post("/authentity",auth.basicAuth,recordController.getAuthEntity);
+   app.get("/authhistory/:count",recordController.getAuthHistory);
    
    //Entity Resource
    app.post("/entity/create",auth.basicAuth,entityController.createEntity);
