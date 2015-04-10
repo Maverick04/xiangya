@@ -38,6 +38,7 @@ module.exports = function(app){
    //Doctor Accout Resource
    app.get("/doctor/account",auth.basicAuthDoctor,function(req,res){res.status(200).send(req.doctor);});
    app.get("/doctor/account/:name",doctorController.getDoctorByName);
+   app.get("/doctor/accountid/:id",doctorController.getDoctorById);
    app.get("/doctor/department",doctorController.getAllDepartments);
    app.get("/doctors/:departmentid",doctorController.getDoctorsByDepartment);
    app.post("/doctor/account",doctorController.registerDoctor);
